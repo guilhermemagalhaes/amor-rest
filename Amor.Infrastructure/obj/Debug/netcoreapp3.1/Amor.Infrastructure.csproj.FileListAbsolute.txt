@@ -1,0 +1,15 @@
+E:\Workroot\AmorApp\Amor.Infrastructure\bin\Debug\netcoreapp3.1\Amor.Infrastructure.deps.json
+E:\Workroot\AmorApp\Amor.Infrastructure\bin\Debug\netcoreapp3.1\Amor.Infrastructure.dll
+E:\Workroot\AmorApp\Amor.Infrastructure\bin\Debug\netcoreapp3.1\Amor.Infrastructure.pdb
+E:\Workroot\AmorApp\Amor.Infrastructure\bin\Debug\netcoreapp3.1\Amor.Core.dll
+E:\Workroot\AmorApp\Amor.Infrastructure\bin\Debug\netcoreapp3.1\Amor.Core.pdb
+E:\Workroot\AmorApp\Amor.Infrastructure\obj\Debug\netcoreapp3.1\Amor.Infrastructure.csprojAssemblyReference.cache
+E:\Workroot\AmorApp\Amor.Infrastructure\obj\Debug\netcoreapp3.1\Amor.Infrastructure.AssemblyInfoInputs.cache
+E:\Workroot\AmorApp\Amor.Infrastructure\obj\Debug\netcoreapp3.1\Amor.Infrastructure.AssemblyInfo.cs
+E:\Workroot\AmorApp\Amor.Infrastructure\obj\Debug\netcoreapp3.1\Amor.Infrastructure.csproj.CopyComplete
+E:\Workroot\AmorApp\Amor.Infrastructure\obj\Debug\netcoreapp3.1\Amor.Infrastructure.dll
+E:\Workroot\AmorApp\Amor.Infrastructure\obj\Debug\netcoreapp3.1\Amor.Infrastructure.pdb
+E:\Workroot\AmorApp\Amor.Infrastructure\bin\Debug\netcoreapp3.1\Amor.Infrastructure.runtimeconfig.json
+E:\Workroot\AmorApp\Amor.Infrastructure\bin\Debug\netcoreapp3.1\Amor.Infrastructure.runtimeconfig.dev.json
+E:\Workroot\AmorApp\Amor.Infrastructure\obj\Debug\netcoreapp3.1\Amor.Infrastructure.genruntimeconfig.cache
+E:\Workroot\AmorApp\Amor.Infrastructure\obj\Debug\netcoreapp3.1\Amor.Infrastructure.csproj.CoreCompileInputs.cache

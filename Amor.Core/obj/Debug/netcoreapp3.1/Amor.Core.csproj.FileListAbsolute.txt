@@ -1,0 +1,9 @@
+E:\Workroot\AmorApp\Amor.Core\bin\Debug\netcoreapp3.1\Amor.Core.deps.json
+E:\Workroot\AmorApp\Amor.Core\bin\Debug\netcoreapp3.1\Amor.Core.dll
+E:\Workroot\AmorApp\Amor.Core\bin\Debug\netcoreapp3.1\Amor.Core.pdb
+E:\Workroot\AmorApp\Amor.Core\obj\Debug\netcoreapp3.1\Amor.Core.csproj.CoreCompileInputs.cache
+E:\Workroot\AmorApp\Amor.Core\obj\Debug\netcoreapp3.1\Amor.Core.AssemblyInfoInputs.cache
+E:\Workroot\AmorApp\Amor.Core\obj\Debug\netcoreapp3.1\Amor.Core.AssemblyInfo.cs
+E:\Workroot\AmorApp\Amor.Core\obj\Debug\netcoreapp3.1\Amor.Core.dll
+E:\Workroot\AmorApp\Amor.Core\obj\Debug\netcoreapp3.1\Amor.Core.pdb
+E:\Workroot\AmorApp\Amor.Core\obj\Debug\netcoreapp3.1\Amor.Core.csprojAssemblyReference.cache
