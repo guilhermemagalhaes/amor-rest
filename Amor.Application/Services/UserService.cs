@@ -28,8 +28,8 @@ namespace Amor.Application.Services
             var user = await _userRepository.SignIn(signInInputModel.Email, signInInputModel.Password);
 
             if (user != null)
-            {
-                ret = new SignInViewModel("123", null);
+            {                
+                ret = new SignInViewModel(null, DateTime.Now, null);
             }
 
             return ret;
