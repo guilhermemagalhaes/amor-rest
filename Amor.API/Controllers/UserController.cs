@@ -22,10 +22,25 @@ namespace Amor.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody]SignUpInputModel signUpInputModel)
+        [Route("[action]")]
+        [ActionName("SignUp")]
+        public async Task<IActionResult> SignUp([FromBody]SignUpInputModel signUpInputModel)
         {
             var retorno =  await _userService.SignUp(signUpInputModel);
             return Ok(retorno);            
+        }
+
+        [HttpPost]
+        [Route("[action]")]
+        [ActionName("SignIn")]
+        public async Task<IActionResult> SignIn([FromBody]SignInInputModel signInInputModel)
+        {
+            var retorno = await _userService.SignIn(signInInputModel);
+
+            if (retorno == null)
+                return NotFound();
+
+            return Ok(retorno);
         }
     }
 }

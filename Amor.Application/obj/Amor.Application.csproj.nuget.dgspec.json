@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Workroot\\AmorApp\\Amor.Application\\Amor.Application.csproj": {}
+    "D:\\Workroot\\amor-rest\\Amor.Application\\Amor.Application.csproj": {}
   },
   "projects": {
-    "E:\\Workroot\\AmorApp\\Amor.Application\\Amor.Application.csproj": {
+    "D:\\Workroot\\amor-rest\\Amor.Application\\Amor.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Workroot\\AmorApp\\Amor.Application\\Amor.Application.csproj",
+        "projectUniqueName": "D:\\Workroot\\amor-rest\\Amor.Application\\Amor.Application.csproj",
         "projectName": "Amor.Application",
-        "projectPath": "E:\\Workroot\\AmorApp\\Amor.Application\\Amor.Application.csproj",
+        "projectPath": "D:\\Workroot\\amor-rest\\Amor.Application\\Amor.Application.csproj",
         "packagesPath": "C:\\Users\\guilh\\.nuget\\packages\\",
-        "outputPath": "E:\\Workroot\\AmorApp\\Amor.Application\\obj\\",
+        "outputPath": "D:\\Workroot\\amor-rest\\Amor.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\guilh\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -27,8 +27,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "E:\\Workroot\\AmorApp\\Amor.Core\\Amor.Core.csproj": {
-                "projectPath": "E:\\Workroot\\AmorApp\\Amor.Core\\Amor.Core.csproj"
+              "D:\\Workroot\\amor-rest\\Amor.Core\\Amor.Core.csproj": {
+                "projectPath": "D:\\Workroot\\amor-rest\\Amor.Core\\Amor.Core.csproj"
               }
             }
           }
@@ -66,14 +66,14 @@
         }
       }
     },
-    "E:\\Workroot\\AmorApp\\Amor.Core\\Amor.Core.csproj": {
+    "D:\\Workroot\\amor-rest\\Amor.Core\\Amor.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Workroot\\AmorApp\\Amor.Core\\Amor.Core.csproj",
+        "projectUniqueName": "D:\\Workroot\\amor-rest\\Amor.Core\\Amor.Core.csproj",
         "projectName": "Amor.Core",
-        "projectPath": "E:\\Workroot\\AmorApp\\Amor.Core\\Amor.Core.csproj",
+        "projectPath": "D:\\Workroot\\amor-rest\\Amor.Core\\Amor.Core.csproj",
         "packagesPath": "C:\\Users\\guilh\\.nuget\\packages\\",
-        "outputPath": "E:\\Workroot\\AmorApp\\Amor.Core\\obj\\",
+        "outputPath": "D:\\Workroot\\amor-rest\\Amor.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\guilh\\AppData\\Roaming\\NuGet\\NuGet.Config",

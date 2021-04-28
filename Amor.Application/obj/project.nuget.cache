@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bwuO7ZG0vLVMtbGzJd/N8siFiYxACtAHIzZydBWd1dfvKX8sbSafAXjInpXaes5HIBo2hmWTWr9JYCTBKSG/5w==",
+  "dgSpecHash": "h0PMHIQLK7VzdkuuJGjqx9lwakfUp+fbf7t348uxRr7F43gUXN/ZRCb64U3f7ACqKjU64F9oWZNZmjSROxzDbw==",
   "success": true,
-  "projectFilePath": "E:\\Workroot\\AmorApp\\Amor.Application\\Amor.Application.csproj",
+  "projectFilePath": "D:\\Workroot\\amor-rest\\Amor.Application\\Amor.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\guilh\\.nuget\\packages\\fluentvalidation\\10.0.4\\fluentvalidation.10.0.4.nupkg.sha512"
   ],

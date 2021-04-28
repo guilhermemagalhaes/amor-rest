@@ -10,5 +10,6 @@ namespace Amor.Application.Services
     public interface IUserService
     {
         Task<SignUpViewModel> SignUp(SignUpInputModel signUpInputModel);
+        Task<SignInViewModel> SignIn(SignInInputModel signInInputModel);
     }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8rQZaOjvQlCcsDeR3tK5wKZB17gwFKpDDyVPh0fO74gkA6JfCMqA+igsq9X2AA6dI8e12i3bHPlwW4OZ9OwAZg==",
+  "dgSpecHash": "QJaxXHlpyVXnql+UbFXcQM0UUQg1wghMUPXmAgMAN+SpGs5zRv/BolZ7BPSKvbCqO+IGfxHtn4QSygo6gs1Mgg==",
   "success": true,
-  "projectFilePath": "E:\\Workroot\\AmorApp\\Amor.Infrastructure\\Amor.Infrastructure.csproj",
+  "projectFilePath": "D:\\Workroot\\amor-rest\\Amor.Infrastructure\\Amor.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\guilh\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

@@ -22,13 +22,26 @@ namespace Amor.Application.Services
             _personRepository = personRepository;
         }
 
+        public async Task<SignInViewModel> SignIn(SignInInputModel signInInputModel)
+        {
+            SignInViewModel ret = null;
+            var user = await _userRepository.SignIn(signInInputModel.Email, signInInputModel.Password);
+
+            if (user != null)
+            {
+                ret = new SignInViewModel("123", null);
+            }
+
+            return ret;
+        }
+
         public async Task<SignUpViewModel> SignUp(SignUpInputModel signUpInputModel)
         {
             bool isOng = signUpInputModel.Document.Length > 11;
             string profile = isOng ? UserProfileEnum.ONG.ToString() : UserProfileEnum.VOLUNTARY.ToString();
-            
+
             int personId = await _personRepository.AddPerson(new Person(signUpInputModel.Name, signUpInputModel.Phone));
-            if(personId > 0)
+            if (personId > 0)
             {
                 if (isOng)
                     await _personRepository.AddLegalPerson(new LegalPerson(signUpInputModel.Document, personId));

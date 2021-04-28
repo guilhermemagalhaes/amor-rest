@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "b9hw/WE1kdKjx0p0aZUw42dZpPm7qI2wD/5N7kW5bl7IwHjvIHDO7ibKY5otnbGdvKxRxEwtajsHS1an/gx2pA==",
+  "dgSpecHash": "qzXEY4erSJJqDszsJU/JxT66JcO9hhtCiVZl151A+OhnuMnOpDnQatKrgw/+N8qrasiy0K0/xZXX3VgX6k9+Tw==",
   "success": true,
-  "projectFilePath": "E:\\Workroot\\AmorApp\\Amor.Core\\Amor.Core.csproj",
+  "projectFilePath": "D:\\Workroot\\amor-rest\\Amor.Core\\Amor.Core.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Jzq++F+wMNfhww3dxvuQPgAj1DyfUVAtIE7Yb+k2tSGcYLL1LEXgoUpLMuMepblZKr6K4W+PRC3m4Zd8Qoq+Nw==",
+  "dgSpecHash": "cKhrRk+YORW8/kF8EzVSoLlaPXD+uGJCAfHuB9fvS+vtih4J6pJ6OdeIi3W1GSqdCaNvyRHgVMqu7ImM8JzU7A==",
   "success": true,
-  "projectFilePath": "E:\\Workroot\\AmorApp\\Amor.API\\Amor.API.csproj",
+  "projectFilePath": "D:\\Workroot\\amor-rest\\Amor.API\\Amor.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\guilh\\.nuget\\packages\\fluentvalidation\\10.0.4\\fluentvalidation.10.0.4.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\fluentvalidation.aspnetcore\\10.0.4\\fluentvalidation.aspnetcore.10.0.4.nupkg.sha512",

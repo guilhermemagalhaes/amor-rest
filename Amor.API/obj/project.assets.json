@@ -6071,11 +6071,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Workroot\\AmorApp\\Amor.API\\Amor.API.csproj",
+      "projectUniqueName": "D:\\Workroot\\amor-rest\\Amor.API\\Amor.API.csproj",
       "projectName": "Amor.API",
-      "projectPath": "E:\\Workroot\\AmorApp\\Amor.API\\Amor.API.csproj",
+      "projectPath": "D:\\Workroot\\amor-rest\\Amor.API\\Amor.API.csproj",
       "packagesPath": "C:\\Users\\guilh\\.nuget\\packages\\",
-      "outputPath": "E:\\Workroot\\AmorApp\\Amor.API\\obj\\",
+      "outputPath": "D:\\Workroot\\amor-rest\\Amor.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\guilh\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6091,11 +6091,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "E:\\Workroot\\AmorApp\\Amor.Application\\Amor.Application.csproj": {
-              "projectPath": "E:\\Workroot\\AmorApp\\Amor.Application\\Amor.Application.csproj"
+            "D:\\Workroot\\amor-rest\\Amor.Application\\Amor.Application.csproj": {
+              "projectPath": "D:\\Workroot\\amor-rest\\Amor.Application\\Amor.Application.csproj"
             },
-            "E:\\Workroot\\AmorApp\\Amor.Infrastructure\\Amor.Infrastructure.csproj": {
-              "projectPath": "E:\\Workroot\\AmorApp\\Amor.Infrastructure\\Amor.Infrastructure.csproj"
+            "D:\\Workroot\\amor-rest\\Amor.Infrastructure\\Amor.Infrastructure.csproj": {
+              "projectPath": "D:\\Workroot\\amor-rest\\Amor.Infrastructure\\Amor.Infrastructure.csproj"
             }
           }
         }

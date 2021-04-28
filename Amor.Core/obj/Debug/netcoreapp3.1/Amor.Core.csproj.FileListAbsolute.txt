@@ -7,3 +7,12 @@ E:\Workroot\AmorApp\Amor.Core\obj\Debug\netcoreapp3.1\Amor.Core.AssemblyInfo.cs
 E:\Workroot\AmorApp\Amor.Core\obj\Debug\netcoreapp3.1\Amor.Core.dll
 E:\Workroot\AmorApp\Amor.Core\obj\Debug\netcoreapp3.1\Amor.Core.pdb
 E:\Workroot\AmorApp\Amor.Core\obj\Debug\netcoreapp3.1\Amor.Core.csprojAssemblyReference.cache
+D:\Workroot\amor-rest\Amor.Core\bin\Debug\netcoreapp3.1\Amor.Core.deps.json
+D:\Workroot\amor-rest\Amor.Core\bin\Debug\netcoreapp3.1\Amor.Core.dll
+D:\Workroot\amor-rest\Amor.Core\bin\Debug\netcoreapp3.1\Amor.Core.pdb
+D:\Workroot\amor-rest\Amor.Core\obj\Debug\netcoreapp3.1\Amor.Core.csprojAssemblyReference.cache
+D:\Workroot\amor-rest\Amor.Core\obj\Debug\netcoreapp3.1\Amor.Core.csproj.CoreCompileInputs.cache
+D:\Workroot\amor-rest\Amor.Core\obj\Debug\netcoreapp3.1\Amor.Core.AssemblyInfoInputs.cache
+D:\Workroot\amor-rest\Amor.Core\obj\Debug\netcoreapp3.1\Amor.Core.AssemblyInfo.cs
+D:\Workroot\amor-rest\Amor.Core\obj\Debug\netcoreapp3.1\Amor.Core.dll
+D:\Workroot\amor-rest\Amor.Core\obj\Debug\netcoreapp3.1\Amor.Core.pdb
