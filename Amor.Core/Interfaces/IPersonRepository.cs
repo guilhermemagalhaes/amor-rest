@@ -8,8 +8,10 @@ namespace Amor.Core.Interfaces
 {
     public interface IPersonRepository
     {
+        Task<int> UpdatePerson(Person person);
         Task<int> AddPerson(Person person);
         Task<int> AddLegalPerson(LegalPerson legalPerson);
         Task<int> AddPhysicalPerson(PhysicalPerson physicalPerson);
+        Task<Person> GetPerson(int id);
     }
 }

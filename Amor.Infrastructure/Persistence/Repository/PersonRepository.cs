@@ -35,5 +35,18 @@ namespace Amor.Infrastructure.Persistence.Repository
             await _dbContext.SaveChangesAsync();
             return request.Entity.PersonId;
         }
+
+        public async Task<int> UpdatePerson(Person person)
+        {
+            var entity = await _dbContext.Person.FindAsync(person.Id);
+            entity = new Person(person.Name, person.Phone);
+            await _dbContext.SaveChangesAsync();
+            return entity.Id;
+        }
+
+        public async Task<Person> GetPerson(int id)
+        {
+            return await _dbContext.Person.FindAsync(id);
+        }
     }
 }

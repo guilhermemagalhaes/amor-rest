@@ -3,6 +3,7 @@ using Amor.Application.ViewModels;
 using Amor.Core.Entities;
 using Amor.Core.Enums;
 using Amor.Core.Interfaces;
+using AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,11 +16,13 @@ namespace Amor.Application.Services
     {
         private readonly IUserRepository _userRepository;
         private readonly IPersonRepository _personRepository;
+        private readonly IMapper _mapper;
 
-        public UserService(IUserRepository userRepository, IPersonRepository personRepository)
+        public UserService(IUserRepository userRepository, IPersonRepository personRepository, IMapper mapper)
         {
             _userRepository = userRepository;
             _personRepository = personRepository;
+            _mapper = mapper;
         }
 
         public async Task<SignInViewModel> SignIn(SignInInputModel signInInputModel)
@@ -29,9 +32,8 @@ namespace Amor.Application.Services
 
             if (user != null)
             {                
-                ret = new SignInViewModel(null, DateTime.Now, null);
+                ret = new SignInViewModel(null, DateTime.Now, _mapper.Map<Person, PersonViewModel>(user.Person));
             }
-
             return ret;
         }
 

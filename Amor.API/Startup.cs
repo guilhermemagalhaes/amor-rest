@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using Amor.API.Infrastructure;
+using Amor.API.Infrastructure.AutoMapper;
+using Amor.API.Infrastructure.Extensions;
 using Amor.Application.Services;
 using Amor.Core.Interfaces;
 using Amor.Infrastructure.Persistence;
@@ -42,6 +42,19 @@ namespace Amor.API
                     s.RunDefaultMvcValidationAfterFluentValidationExecutes = false;
                 });
 
+            ConfigureJWT(services);
+
+            ConfigureInjectionDependency(services);
+
+            ConfigureDbContext(services);
+
+            ConfigureAutoMapper(services);
+
+            services.AddSwaggerDocumentation();
+        }
+
+        public void ConfigureJWT(IServiceCollection services)
+        {
             services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -59,15 +72,28 @@ namespace Amor.API
                    ValidateAudience = false
                };
            });
+        }
 
-            services.AddSwaggerDocumentation();
-
+        public void ConfigureInjectionDependency(IServiceCollection services)
+        {
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IHomelessRepository, HomelessRepository>();
             services.AddScoped<IPersonRepository, PersonRepository>();
-            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IPhotoRepository, PhotoRepository>();
 
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IHomelessService, HomelessService>();
+        }
+
+        public void ConfigureDbContext(IServiceCollection services)
+        {
             services.AddDbContext<AmorAppDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+        }
+
+        public void ConfigureAutoMapper(IServiceCollection services)
+        {
+            services.AddAutoMapper(cfg => cfg.AddProfile<AutoMapperProfileConfiguration>(), typeof(Startup).Assembly);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

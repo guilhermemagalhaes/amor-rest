@@ -33,6 +33,7 @@ namespace Amor.API.Controllers
         [HttpPost]
         [Route("[action]")]
         [ActionName("SignUp")]
+        [AllowAnonymous]
         public async Task<IActionResult> SignUp([FromBody]SignUpInputModel signUpInputModel)
         {
             var retorno = await _userService.SignUp(signUpInputModel);
@@ -42,6 +43,7 @@ namespace Amor.API.Controllers
         [HttpPost]
         [Route("[action]")]
         [ActionName("SignIn")]
+        [AllowAnonymous]
         public async Task<IActionResult> SignIn([FromBody]SignInInputModel signInInputModel)
         {
             var retorno = await _userService.SignIn(signInInputModel);

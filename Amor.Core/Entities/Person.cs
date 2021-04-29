@@ -12,6 +12,20 @@ namespace Amor.Core.Entities
             Name = name;
             Phone = phone;
         }
+
+        public Person(string name, string phone, ICollection<PersonPhoto> PersonPhotos)
+        {
+            Name = name;
+            Phone = phone;
+            this.PersonPhotos = PersonPhotos;
+        }
+
+        public void Update(string name, string phone)
+        {
+            Name = name;
+            Phone = phone;
+        }
+
         public string Name { get; private set; }
         public string Phone { get; private set; }
 

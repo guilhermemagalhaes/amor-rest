@@ -7,12 +7,24 @@ namespace Amor.Core.Entities
     public class Homeless : Base
     {
         protected Homeless() { }
-        public Homeless(string needs, string about, int counterNotFound, int personId)
+        public Homeless(string needs, string about, int counterNotFound, Person person)
         {
             Needs = needs;
             About = about;
             CounterNotFound = counterNotFound;
-            PersonId = personId;
+            Person = person;            
+        }
+
+        public Homeless(string needs, string about)
+        {
+            Needs = needs;
+            About = about;                        
+        }
+
+        public void Update(string needs, string about)
+        {
+            Needs = needs;
+            About = about;
         }
 
         public string Needs { get; private set; }
