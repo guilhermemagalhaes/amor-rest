@@ -8,6 +8,7 @@ using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,13 +19,19 @@ namespace Amor.Application.Services
         private readonly IHomelessRepository _homelessRepository;
         private readonly IPersonRepository _personRepository;
         private readonly IPhotoRepository _photoRepository;
+        private readonly IAddressRepository _addressRepository;
         private readonly IMapper _mapper;
 
-        public HomelessService(IHomelessRepository homelessRepository, IPersonRepository personRepository, IPhotoRepository photoRepository, IMapper mapper)
+        public HomelessService(IHomelessRepository homelessRepository,
+                               IPersonRepository personRepository,
+                               IPhotoRepository photoRepository,
+                               IAddressRepository addressRepository,
+                               IMapper mapper)
         {
             _homelessRepository = homelessRepository;
             _personRepository = personRepository;
             _photoRepository = photoRepository;
+            _addressRepository = addressRepository;
             _mapper = mapper;
         }
 
@@ -35,12 +42,27 @@ namespace Amor.Application.Services
                 personPhotos.Add(new PersonPhoto(new Photo(i)));
             
             var homelessId = await _homelessRepository.Add(new Homeless(homelessInputModel.Needs, homelessInputModel.About, 0, new Person(homelessInputModel.Name, "", personPhotos)));
+            var homeless = await _homelessRepository.Get(homelessId);            
+            await _addressRepository.Add(new Address(homelessInputModel.Address.Longitude,
+                                               homelessInputModel.Address.Longitude,
+                                               homelessInputModel.Address.AddressDesc,
+                                               homelessInputModel.Address.Neighborhood,
+                                               homelessInputModel.Address.Province,
+                                               homelessInputModel.Address.Zip,
+                                               homelessInputModel.Address.City,
+                                               personId: homeless.Person.Id,
+                                               eventId: null));
+
             return homelessId > 0;
         }
 
         public async Task<HomelessViewModel> Get(int id)
         {
             var response = await _homelessRepository.Get(id);
+
+            if (response == null)
+                return null;
+
             var ret = _mapper.Map<Homeless, HomelessViewModel>(response);
 
             ret.Photos = new List<string>();
@@ -64,6 +86,16 @@ namespace Amor.Application.Services
             homeless.Person.PersonPhotos = personPhotos;
 
             var homelessId = await _homelessRepository.Update(homeless);
+
+            await _addressRepository.Update(new Address(homelessInputModel.Address.Longitude,
+                                               homelessInputModel.Address.Longitude,
+                                               homelessInputModel.Address.AddressDesc,
+                                               homelessInputModel.Address.Neighborhood,
+                                               homelessInputModel.Address.Province,
+                                               homelessInputModel.Address.Zip,
+                                               homelessInputModel.Address.City,
+                                               personId: homeless.Person.Id,
+                                               eventId: null));
 
             return homelessId > 0;
         }

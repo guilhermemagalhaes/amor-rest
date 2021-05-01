@@ -80,6 +80,7 @@ namespace Amor.API
             services.AddScoped<IHomelessRepository, HomelessRepository>();
             services.AddScoped<IPersonRepository, PersonRepository>();
             services.AddScoped<IPhotoRepository, PhotoRepository>();
+            services.AddScoped<IAddressRepository, AddressRepository>();
 
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IHomelessService, HomelessService>();

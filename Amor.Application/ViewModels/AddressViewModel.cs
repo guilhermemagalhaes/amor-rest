@@ -7,6 +7,7 @@ namespace Amor.Application.ViewModels
 {
     public class AddressViewModel
     {
+        protected AddressViewModel() { }
         public AddressViewModel(decimal Longitude, decimal Latitude, string Neighborhood, string Zip, string City, string Province, string AddressDesc)
         {
             this.Longitude = Longitude;

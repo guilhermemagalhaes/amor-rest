@@ -17,8 +17,9 @@ namespace Amor.Core.Entities
         {
             Name = name;
             Phone = phone;
-            this.PersonPhotos = PersonPhotos;
+            this.PersonPhotos = PersonPhotos;            
         }
+
 
         public void Update(string name, string phone)
         {

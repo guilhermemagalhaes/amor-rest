@@ -13,6 +13,6 @@ namespace Amor.Application.InputModels
         public string About { get; set; }
         public string Needs { get; set; }
         public IList<string> Photos { get; set; }
-        public AddressViewModel Address { get; set; }
+        public AddressInputModel Address { get; set; }
     }
 }

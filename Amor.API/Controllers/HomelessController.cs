@@ -34,6 +34,10 @@ namespace Amor.API.Controllers
         public async Task<IActionResult> Get(int id)
         {
             var response = await _homelessService.Get(id);
+
+            if (response == null)
+                return NotFound();
+
             return Ok(response);
         }
 
