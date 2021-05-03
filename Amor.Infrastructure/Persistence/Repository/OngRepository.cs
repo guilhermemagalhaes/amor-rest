@@ -35,6 +35,14 @@ namespace Amor.Infrastructure.Persistence.Repository
                 .FirstOrDefaultAsync();
         }
 
+        public async Task<IList<Ong>> GetByName(string name)
+        {
+            return await _dbContext.Ongs
+                .Include(x => x.Person)
+                .Where(x => x.Person.Name.Contains(name))
+                .ToListAsync();
+        }
+
         public async Task<Ong> GetByPersonId(int personId)
         {
             return await _dbContext.Ongs
@@ -47,7 +55,7 @@ namespace Amor.Infrastructure.Persistence.Repository
 
         public async Task<int> Update(Ong ong)
         {
-            var entity = await _dbContext.Ongs.FindAsync(ong.Id);            
+            var entity = await _dbContext.Ongs.FindAsync(ong.Id);
             await _dbContext.SaveChangesAsync();
             return entity.Id;
         }

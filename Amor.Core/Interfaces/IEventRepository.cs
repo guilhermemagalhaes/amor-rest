@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Amor.Core.Interfaces
 {
-    public interface IHomelessRepository
+    public interface IEventRepository
     {
-        Task<int> Add(Homeless homeless);
-        Task<int> Update(Homeless homeless);
-        Task<Homeless> Get(int id);
+        Task<int> Add(Event @event);
+        Task<int> Update(Event @event);
+        Task<Event> Get(int id);
+        Task<IList<Event>> GetByName(string name);        
     }
 }

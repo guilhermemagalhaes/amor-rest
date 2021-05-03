@@ -8,16 +8,18 @@ namespace Amor.Core.Entities
     {
         protected Event() { }
 
-        public Event(DateTime startDate, DateTime endDate, string pageProfileLink, string about)
+        public Event(string name, DateTime startDate, DateTime endDate, string pageProfileLink, string about)
         {
+            Name = name;
             StartDate = startDate;
             EndDate = endDate;
             PageProfileLink = pageProfileLink;
             About = about;
         }
 
-        public Event(DateTime startDate, DateTime endDate, string pageProfileLink, string about, ICollection<EventPhoto> eventPhotos, ICollection<EventParticipants> eventParticipants)
+        public Event(string name, DateTime startDate, DateTime endDate, string pageProfileLink, string about, ICollection<EventPhoto> eventPhotos, ICollection<EventParticipants> eventParticipants)
         {
+            Name = name;
             StartDate = startDate;
             EndDate = endDate;
             PageProfileLink = pageProfileLink;
@@ -26,14 +28,16 @@ namespace Amor.Core.Entities
             EventParticipants = eventParticipants;
         }
 
-        public void Update(DateTime startDate, DateTime endDate, string pageProfileLink, string about)
+        public void Update(string name, DateTime startDate, DateTime endDate, string pageProfileLink, string about)
         {
+            Name = name;
             StartDate = startDate;
             EndDate = endDate;
             PageProfileLink = pageProfileLink;
             About = about;
         }
 
+        public string Name { get; private set; }
         public DateTime StartDate { get; private set; }
         public DateTime EndDate { get; private set; }
         public string PageProfileLink { get; private set; }

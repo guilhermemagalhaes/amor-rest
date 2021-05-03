@@ -18,16 +18,14 @@ using Microsoft.IdentityModel.Tokens;
 namespace Amor.API.Controllers
 {
     [ApiController]
-    //[Authorize]
+    [Authorize]
     [Route("[controller]")]
     public class HomelessController : BaseController
     {
-        private readonly IHomelessService _homelessService;
-        private readonly IConfiguration _configuration;
-        public HomelessController(IHomelessService homelessService, IConfiguration configuration)
+        private readonly IHomelessService _homelessService;        
+        public HomelessController(IHomelessService homelessService)
         {
-            _homelessService = homelessService;
-            _configuration = configuration;
+            _homelessService = homelessService;            
         }
 
         [HttpGet]

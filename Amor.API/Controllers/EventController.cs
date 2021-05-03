@@ -18,7 +18,7 @@ using Microsoft.IdentityModel.Tokens;
 namespace Amor.API.Controllers
 {
     [ApiController]
-    //[Authorize]
+    [Authorize]
     [Route("[controller]")]
     public class EventController : BaseController
     {

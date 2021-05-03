@@ -39,6 +39,23 @@ namespace Amor.Application.Services
             _mapper = mapper;
         }
 
+        public async Task<IList<SearchByNameViewModel>> GetByName(string name)
+        {
+            List<SearchByNameViewModel> searchByNames = new List<SearchByNameViewModel>();
+
+            var ongs = await _ongRepository.GetByName(name);
+
+            foreach (var i in ongs)
+                searchByNames.Add(new SearchByNameViewModel()
+                {
+                    Id = i.Id,
+                    Name = i.Person.Name,
+                    Type = "ONG"
+                });
+
+            return searchByNames;
+        }
+
         public async Task<OngViewModel> GetByPersonId(int id)
         {
             var response = await _ongRepository.GetByPersonId(id);
@@ -54,7 +71,7 @@ namespace Amor.Application.Services
                 ret.Photos.Add(item.Photo.URL);
             }
 
-            if(response.Person.Address.Count() > 0)
+            if (response.Person.Address.Count() > 0)
             {
                 var address = _mapper.Map<Address, AddressViewModel>(response.Person.Address.FirstOrDefault());
                 ret.Address = address;
@@ -68,7 +85,7 @@ namespace Amor.Application.Services
             List<PersonPhoto> personPhotos = new List<PersonPhoto>();
             foreach (var i in ongInputModel.Photos)
                 personPhotos.Add(new PersonPhoto(new Photo(i)));
-            
+
             var ong = await _ongRepository.GetByPersonId(ongInputModel.personId);
 
             ong.Update(ongInputModel.OpeningTime, ongInputModel.ClosingTime, ongInputModel.PageProfileLink, ongInputModel.About);
@@ -88,7 +105,7 @@ namespace Amor.Application.Services
                                                ongInputModel.Address.Province,
                                                ongInputModel.Address.Zip,
                                                ongInputModel.Address.City,
-                                               personId: ong.Person.Id,                                               
+                                               personId: ong.Person.Id,
                                                eventId: null);
 
                 await _addressRepository.Update(address);
@@ -105,7 +122,7 @@ namespace Amor.Application.Services
                                                personId: ong.Person.Id,
                                                eventId: null));
             }
-            
+
             return ongId > 0;
         }
     }

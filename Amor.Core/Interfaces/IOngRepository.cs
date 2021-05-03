@@ -12,5 +12,7 @@ namespace Amor.Core.Interfaces
         Task<int> Update(Ong ong);
         Task<Ong> Get(int id);
         Task<Ong> GetByPersonId(int personId);
+        Task<IList<Ong>> GetByName(string name);
+
     }
 }

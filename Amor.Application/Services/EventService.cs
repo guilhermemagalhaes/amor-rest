@@ -50,7 +50,7 @@ namespace Amor.Application.Services
             List<EventParticipants> eventParticipants = new List<EventParticipants>();
             eventParticipants.Add(new EventParticipants(eventInputModel.personIdCadastro, true));
 
-            var eventId = await _eventRepository.Add(new Event(eventInputModel.StartDate, eventInputModel.EndDate, eventInputModel.PageProfileLink, eventInputModel.About, eventPhotos, eventParticipants));
+            var eventId = await _eventRepository.Add(new Event(eventInputModel.Name, eventInputModel.StartDate, eventInputModel.EndDate, eventInputModel.PageProfileLink, eventInputModel.About, eventPhotos, eventParticipants));
 
             await _addressRepository.Add(new Address(eventInputModel.Address.Longitude,
                                               eventInputModel.Address.Longitude,
@@ -89,6 +89,22 @@ namespace Amor.Application.Services
             return ret;
         }
 
+        public async Task<IList<SearchByNameViewModel>> GetByName(string name)
+        {
+            IList<SearchByNameViewModel> searchByNames = new List<SearchByNameViewModel>();
+
+            var events = await _eventRepository.GetByName(name);
+
+            foreach (var i in events)
+                searchByNames.Add(new SearchByNameViewModel()
+                {
+                    Id = i.Id,
+                    Name = i.Name,
+                    Type = "EVENT"
+                });
+            return searchByNames;
+        }
+
         public async Task<bool> Update(EventInputModel eventInputModel)
         {
             List<EventPhoto> eventPhotos = new List<EventPhoto>();
@@ -97,7 +113,7 @@ namespace Amor.Application.Services
 
             var @event = await _eventRepository.Get(eventInputModel.Id);
 
-            @event.Update(eventInputModel.StartDate, eventInputModel.EndDate, eventInputModel.PageProfileLink, eventInputModel.About);
+            @event.Update(eventInputModel.Name, eventInputModel.StartDate, eventInputModel.EndDate, eventInputModel.PageProfileLink, eventInputModel.About);
             @event.EventPhotos = eventPhotos;
 
             var eventId = await _eventRepository.Update(@event);

@@ -35,6 +35,11 @@ namespace Amor.Infrastructure.Persistence.Repository
                 .FirstOrDefaultAsync();
         }
 
+        public async Task<IList<Event>> GetByName(string name)
+        {
+            return await _dbContext.Events.Where(x => x.Name.Contains(name)).ToListAsync();
+        }
+
         public async Task<int> Update(Event @event)
         {
             var entity = await _dbContext.Events.FindAsync(@event.Id);

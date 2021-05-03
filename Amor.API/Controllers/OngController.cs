@@ -20,24 +20,25 @@ using Microsoft.IdentityModel.Tokens;
 namespace Amor.API.Controllers
 {
     [ApiController]
-    //[Authorize]
+    [Authorize]
     [Route("[controller]")]
     public class OngController : BaseController
     {
-        private readonly IOngService _ongService;
-        private readonly IUserRepository _userRepository;
-        private readonly IConfiguration _configuration;
-        public OngController(IOngService ongService, IUserRepository userRepository, IConfiguration configuration)
+        private readonly IOngService _ongService;                
+        public OngController(IOngService ongService)
         {
-            _ongService = ongService;
-            _userRepository = userRepository;            
-            _configuration = configuration;
+            _ongService = ongService;            
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get(int personId)
+        public async Task<IActionResult> Get()
         {
-            var response = await _ongService.GetByPersonId(personId);
+            var personId = GetPersonId();
+
+            if (!personId.HasValue)
+                return BadRequest();
+
+            var response = await _ongService.GetByPersonId((int)personId);
 
             if (response == null)
                 return NotFound();
@@ -53,7 +54,7 @@ namespace Amor.API.Controllers
             var personId = GetPersonId();
 
             if (!personId.HasValue)
-                return NotFound();
+                return BadRequest();
 
             ongInputModel.personId = (int)personId;
 

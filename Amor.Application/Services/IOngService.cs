@@ -11,5 +11,6 @@ namespace Amor.Application.Services
     {
         Task<OngViewModel> GetByPersonId(int id);        
         Task<bool> Update(OngInputModel ongInputModel);
+        Task<IList<SearchByNameViewModel>> GetByName(string name);
     }
 }

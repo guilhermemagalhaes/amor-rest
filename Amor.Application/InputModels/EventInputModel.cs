@@ -10,6 +10,7 @@ namespace Amor.Application.InputModels
         [JsonIgnore]
         public int personIdCadastro { get; set; }
         public int Id { get; set; }
+        public string Name { get; set; }
         public string PageProfileLink { get; set; }        
         public string About { get; set; }
         public DateTime StartDate { get; set; }

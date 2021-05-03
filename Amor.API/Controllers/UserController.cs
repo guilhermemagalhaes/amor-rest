@@ -22,12 +22,10 @@ namespace Amor.API.Controllers
     [Route("[controller]")]
     public class UserController : BaseController
     {
-        private readonly IUserService _userService;
-        private readonly IConfiguration _configuration;
-        public UserController(IUserService userService, IConfiguration configuration)
+        private readonly IUserService _userService;        
+        public UserController(IUserService userService)
         {
-            _userService = userService;
-            _configuration = configuration;
+            _userService = userService;            
         }
 
         [HttpGet]                
