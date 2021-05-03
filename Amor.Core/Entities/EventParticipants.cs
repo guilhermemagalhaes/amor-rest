@@ -14,6 +14,12 @@ namespace Amor.Core.Entities
             Organizer = organizer;
         }
 
+        public EventParticipants(int personId, bool organizer)
+        {
+            PersonId = personId;            
+            Organizer = organizer;
+        }
+
         public int PersonId { get; private set; }
         public Person Person { get; private set; }
         public int EventId { get; private set; }

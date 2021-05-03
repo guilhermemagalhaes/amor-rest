@@ -29,7 +29,7 @@ namespace Amor.API.Controllers
         [ApiExplorerSettings(IgnoreApi = true)]
         public int? GetPersonId()
         {
-            var value = User.FindFirst("personId").Value;
+            var value = User.FindFirst("personId")?.Value;
 
             if (value != null)
                 return Convert.ToInt32(value);

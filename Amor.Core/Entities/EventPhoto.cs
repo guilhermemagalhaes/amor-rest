@@ -14,9 +14,14 @@ namespace Amor.Core.Entities
             PhotoId = photoId;
         }
 
+        public EventPhoto(Photo photo)
+        {
+            Photo = photo;
+        }
+
         public int EventId { get; private set; }
         public Event Event { get; private set; }
         public int PhotoId { get; private set; }
-        public Photo Person { get; private set; }
+        public Photo Photo { get; private set; }
     }
 }

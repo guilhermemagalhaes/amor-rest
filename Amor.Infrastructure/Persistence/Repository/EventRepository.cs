@@ -10,38 +10,36 @@ using System.Threading.Tasks;
 
 namespace Amor.Infrastructure.Persistence.Repository
 {
-
-    public class HomelessRepository : IHomelessRepository
+    public class EventRepository : IEventRepository
     {
         private readonly AmorAppDbContext _dbContext;
-        public HomelessRepository(AmorAppDbContext dbContext)
+        public EventRepository(AmorAppDbContext dbContext)
         {
             this._dbContext = dbContext;
         }
 
-        public async Task<int> Add(Homeless homeless)
+        public async Task<int> Add(Event @event)
         {
-            var request = await _dbContext.Homeless.AddAsync(homeless);
+            var request = await _dbContext.Events.AddAsync(@event);
             await _dbContext.SaveChangesAsync();
             return request.Entity.Id;
 
         }
 
-        public async Task<Homeless> Get(int id)
+        public async Task<Event> Get(int id)
         {
-            return await _dbContext.Homeless
-                .Include(x => x.Person).ThenInclude(x => x.Address)
-                .Include(x => x.Person).ThenInclude(x => x.PersonPhotos).ThenInclude(x => x.Photo)
+            return await _dbContext.Events
+                .Include(x => x.EventPhotos).ThenInclude(x => x.Photo)
+                .Include(x => x.Address)
                 .Where(x => x.Id == id)
                 .FirstOrDefaultAsync();
         }
 
-        public async Task<int> Update(Homeless homeless)
+        public async Task<int> Update(Event @event)
         {
-            var entity = await _dbContext.Homeless.FindAsync(homeless.Id);
+            var entity = await _dbContext.Events.FindAsync(@event.Id);
             await _dbContext.SaveChangesAsync();
             return entity.Id;
         }
     }
-    
 }

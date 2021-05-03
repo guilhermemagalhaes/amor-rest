@@ -30,6 +30,11 @@ namespace Amor.API.Infrastructure.AutoMapper
                 .ForMember(h => h.Document, p => p.MapFrom(x => x.Person.LegalPerson.CNPJ))
                 .ReverseMap();
 
+
+            CreateMap<Event, EventViewModel>().ReverseMap();
+
+
+
             //.ForMember(d => d.EstadoNome, opt => opt.MapFrom(x => x.Estado.Nome))
             //.ReverseMap()
             //.ForPath(x => x.Estado.Nome, p => p.Ignore());
