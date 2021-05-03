@@ -27,6 +27,12 @@ namespace Amor.Application.Services
             _mapper = mapper;
         }
 
+        public async Task<UserSimpleViewModel> GetUserByPersonId(int personId)
+        {
+            var response = await _userRepository.GetUserByPersonId(personId);
+            return  _mapper.Map<User, UserSimpleViewModel>(response);
+        }
+
         public async Task<SignInViewModel> SignIn(SignInInputModel signInInputModel)
         {
             SignInViewModel ret = null;

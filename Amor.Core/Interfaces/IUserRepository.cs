@@ -10,7 +10,7 @@ namespace Amor.Core.Interfaces
     {
         Task<int> Add(User user);
         Task<User> SignIn(string email, string password);
-
         Task<User> GetUser(int id);
+        Task<User> GetUserByPersonId(int personId);
     }
 }

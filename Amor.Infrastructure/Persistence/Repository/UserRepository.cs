@@ -34,6 +34,15 @@ namespace Amor.Infrastructure.Persistence.Repository
                 .Include(x => x.Person).ThenInclude(x => x.PhysicalPerson).AsNoTracking()
                 .FirstOrDefaultAsync();
         }
+        public async Task<User> GetUserByPersonId(int personId)
+        {
+            return await _dbContext.Users
+                .Where(x => x.PersonId == personId)
+                .Include(x => x.Person).ThenInclude(x => x.Address).AsNoTracking()
+                .Include(x => x.Person).ThenInclude(x => x.LegalPerson).AsNoTracking()
+                .Include(x => x.Person).ThenInclude(x => x.PhysicalPerson).AsNoTracking()
+                .FirstOrDefaultAsync();
+        }
 
         public async Task<User> SignIn(string email, string password)
         {
