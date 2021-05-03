@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using Amor.Application.InputModels;
 using Amor.Application.Services;
 using Amor.Application.ViewModels;
+using Amor.Core.Entities;
+using Amor.Core.Interfaces;
 using FluentValidation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -20,20 +22,22 @@ namespace Amor.API.Controllers
     [ApiController]
     //[Authorize]
     [Route("[controller]")]
-    public class HomelessController : BaseController
+    public class OngController : BaseController
     {
-        private readonly IHomelessService _homelessService;
+        private readonly IOngService _ongService;
+        private readonly IUserRepository _userRepository;
         private readonly IConfiguration _configuration;
-        public HomelessController(IHomelessService homelessService, IConfiguration configuration)
+        public OngController(IOngService ongService, IUserRepository userRepository, IConfiguration configuration)
         {
-            _homelessService = homelessService;
+            _ongService = ongService;
+            _userRepository = userRepository;            
             _configuration = configuration;
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get(int id)
+        public async Task<IActionResult> Get(int personId)
         {
-            var response = await _homelessService.Get(id);
+            var response = await _ongService.GetByPersonId(personId);
 
             if (response == null)
                 return NotFound();
@@ -42,22 +46,19 @@ namespace Amor.API.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Put([FromBody]HomelessInputModel homelessInputModel)
+        public async Task<IActionResult> Put([FromBody]OngInputModel ongInputModel)
         {
-            bool ret;
+            bool ret = false;
 
             var personId = GetPersonId();
 
             if (!personId.HasValue)
                 return NotFound();
 
-            homelessInputModel.personIdCadastro = (int)personId;
-            
-            if (homelessInputModel.Id > 0)
-                ret = await _homelessService.Update(homelessInputModel);
-            else
-                ret = await _homelessService.Add(homelessInputModel);
+            ongInputModel.personId = (int)personId;
 
+            ret = await _ongService.Update(ongInputModel);
+            
             return Ok(new { Ok = ret });
         }
     }

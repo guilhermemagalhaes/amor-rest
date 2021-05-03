@@ -21,6 +21,18 @@ namespace Amor.Core.Entities
             EventId = eventId;
         }
 
+        public void Update(decimal longitude, decimal latitude, string addressDesc, string neighborhood, string province, string zip, string city, int? personId, int? eventId)
+        {
+            Longitude = longitude;
+            Latitude = latitude;
+            AddressDesc = addressDesc;
+            Neighborhood = neighborhood;
+            Province = province;
+            Zip = zip;
+            City = city;
+            PersonId = personId;
+            EventId = eventId;
+        }
 
         public decimal Longitude { get; private set; }
         public decimal Latitude { get; private set; }

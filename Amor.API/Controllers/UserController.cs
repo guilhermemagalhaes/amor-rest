@@ -59,6 +59,7 @@ namespace Amor.API.Controllers
             var claims = new[]
             {
                 new Claim(JwtRegisteredClaimNames.UniqueName, signInViewModel.Person.Name),
+                new Claim("personId", signInViewModel.Person.Id.ToString()),                
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:key"]));

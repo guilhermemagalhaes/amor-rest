@@ -22,7 +22,13 @@ namespace Amor.API.Infrastructure.AutoMapper
                 .ForMember(h => h.Name, p => p.MapFrom(x => x.Person.Name))                
                 .ForMember(h => h.Address, p => p.MapFrom(x => x.Person.Address))                
                 .ReverseMap();
-                
+
+
+            CreateMap<Ong, OngViewModel>()
+                .ForMember(h => h.Name, p => p.MapFrom(x => x.Person.Name))
+                .ForMember(h => h.Phone, p => p.MapFrom(x => x.Person.Phone))
+                .ForMember(h => h.Document, p => p.MapFrom(x => x.Person.LegalPerson.CNPJ))
+                .ReverseMap();
 
             //.ForMember(d => d.EstadoNome, opt => opt.MapFrom(x => x.Estado.Nome))
             //.ReverseMap()

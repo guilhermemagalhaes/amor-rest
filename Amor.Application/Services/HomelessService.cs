@@ -41,7 +41,7 @@ namespace Amor.Application.Services
             foreach (var i in homelessInputModel.Photos)
                 personPhotos.Add(new PersonPhoto(new Photo(i)));
             
-            var homelessId = await _homelessRepository.Add(new Homeless(homelessInputModel.Needs, homelessInputModel.About, 0, new Person(homelessInputModel.Name, "", personPhotos)));
+            var homelessId = await _homelessRepository.Add(new Homeless(homelessInputModel.Needs, homelessInputModel.About, 0, new Person(homelessInputModel.Name, "", personPhotos), homelessInputModel.personIdCadastro));
             var homeless = await _homelessRepository.Get(homelessId);            
             await _addressRepository.Add(new Address(homelessInputModel.Address.Longitude,
                                                homelessInputModel.Address.Longitude,

@@ -46,9 +46,16 @@ namespace Amor.Infrastructure.Persistence.Repository
 
         public async Task<int> Update(Address address)
         {
-            var entity = await _dbContext.Homeless.FindAsync(address.Id);
-            await _dbContext.SaveChangesAsync();
-            return entity.Id;
+            try
+            {
+                var entity = await _dbContext.Address.FindAsync(address.Id);
+                await _dbContext.SaveChangesAsync();
+                return entity.Id;
+            }
+            catch(Exception e)
+            {
+                throw;
+            }            
         }
     }
 }

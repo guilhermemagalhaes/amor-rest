@@ -16,12 +16,14 @@ namespace Amor.Application.Services
     {
         private readonly IUserRepository _userRepository;
         private readonly IPersonRepository _personRepository;
+        private readonly IOngRepository _ongRepository;
         private readonly IMapper _mapper;
 
-        public UserService(IUserRepository userRepository, IPersonRepository personRepository, IMapper mapper)
+        public UserService(IUserRepository userRepository, IPersonRepository personRepository, IOngRepository ongRepository, IMapper mapper)
         {
             _userRepository = userRepository;
             _personRepository = personRepository;
+            _ongRepository = ongRepository;
             _mapper = mapper;
         }
 
@@ -46,7 +48,10 @@ namespace Amor.Application.Services
             if (personId > 0)
             {
                 if (isOng)
+                {
                     await _personRepository.AddLegalPerson(new LegalPerson(signUpInputModel.Document, personId));
+                    await _ongRepository.Add(new Ong(null, null, string.Empty, string.Empty, personId));
+                }                    
                 else
                     await _personRepository.AddPhysicalPerson(new PhysicalPerson(signUpInputModel.Document, personId));
             }
