@@ -70,6 +70,14 @@ namespace Amor.Application.Services
             {
                 ret.Photos.Add(item.Photo.URL);
             }
+
+
+            if (response.Person.Address.Count() > 0)
+            {
+                var address = _mapper.Map<Address, AddressViewModel>(response.Person.Address.FirstOrDefault());
+                ret.Address = address;
+            }
+
             return ret;
         }
 

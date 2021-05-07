@@ -9,7 +9,7 @@ namespace Amor.Application.ViewModels
         public string Name { get; set; }
         public string About { get; set; }
         public string Needs { get; set; }
-        public IList<AddressViewModel> Address { get; set; }
+        public AddressViewModel Address { get; set; }
         public IList<string> Photos { get; set; }
     }
 }

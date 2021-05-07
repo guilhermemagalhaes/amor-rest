@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Net;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,6 +32,7 @@ namespace Amor.API.Controllers
         }
 
         [HttpGet]
+        [ProducesResponseType(typeof(OngViewModel), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> Get()
         {
             var personId = GetPersonId();

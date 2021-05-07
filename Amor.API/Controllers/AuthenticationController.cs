@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Net;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,6 +35,7 @@ namespace Amor.API.Controllers
         [Route("[action]")]
         [ActionName("SignUp")]
         [AllowAnonymous]
+        [ProducesResponseType(typeof(SignUpViewModel), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> SignUp([FromBody]SignUpInputModel signUpInputModel)
         {
             var retorno = await _userService.SignUp(signUpInputModel);
@@ -44,6 +46,7 @@ namespace Amor.API.Controllers
         [Route("[action]")]
         [ActionName("SignIn")]
         [AllowAnonymous]
+        [ProducesResponseType(typeof(SignInViewModel), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> SignIn([FromBody]SignInInputModel signInInputModel)
         {
             var retorno = await _userService.SignIn(signInInputModel);

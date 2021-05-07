@@ -22,16 +22,21 @@ namespace Amor.API.Infrastructure.AutoMapper
 
             CreateMap<Homeless, HomelessViewModel>()
                 .ForMember(h => h.Name, p => p.MapFrom(x => x.Person.Name))                
-                .ForMember(h => h.Address, p => p.MapFrom(x => x.Person.Address))                
+                .ForMember(h => h.Address, p => p.Ignore())                
                 .ReverseMap();
 
             CreateMap<Ong, OngViewModel>()
                 .ForMember(h => h.Name, p => p.MapFrom(x => x.Person.Name))
                 .ForMember(h => h.Phone, p => p.MapFrom(x => x.Person.Phone))
                 .ForMember(h => h.Document, p => p.MapFrom(x => x.Person.LegalPerson.CNPJ))
+                .ForMember(h => h.OpeningTime, p => p.Ignore())
+                .ForMember(h => h.ClosingTime, p => p.Ignore())
                 .ReverseMap();
 
-            CreateMap<Event, EventViewModel>().ReverseMap();
+            CreateMap<Event, EventViewModel>()
+                .ForMember(h => h.StartDate, p => p.Ignore())
+                .ForMember(h => h.EndDate, p => p.Ignore())
+                .ReverseMap();
 
             CreateMap<User, UserSimpleViewModel>().ReverseMap();
 

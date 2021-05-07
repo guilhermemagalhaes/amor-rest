@@ -7,6 +7,7 @@ using AutoMapper;
 using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -50,7 +51,7 @@ namespace Amor.Application.Services
             List<EventParticipants> eventParticipants = new List<EventParticipants>();
             eventParticipants.Add(new EventParticipants(eventInputModel.personIdCadastro, true));
 
-            var eventId = await _eventRepository.Add(new Event(eventInputModel.Name, eventInputModel.StartDate, eventInputModel.EndDate, eventInputModel.PageProfileLink, eventInputModel.About, eventPhotos, eventParticipants));
+            var eventId = await _eventRepository.Add(new Event(eventInputModel.Name, Convert.ToDateTime(eventInputModel.StartDate), Convert.ToDateTime(eventInputModel.EndDate), eventInputModel.PageProfileLink, eventInputModel.About, eventPhotos, eventParticipants));
 
             await _addressRepository.Add(new Address(eventInputModel.Address.Longitude,
                                               eventInputModel.Address.Longitude,
@@ -86,6 +87,9 @@ namespace Amor.Application.Services
                 ret.EventAddress = address;
             }
 
+            ret.StartDate = response.StartDate.ToString("dd/MM/yyyy");
+            ret.EndDate = response.EndDate.ToString("dd/MM/yyyy");
+
             return ret;
         }
 
@@ -113,7 +117,7 @@ namespace Amor.Application.Services
 
             var @event = await _eventRepository.Get(eventInputModel.Id);
 
-            @event.Update(eventInputModel.Name, eventInputModel.StartDate, eventInputModel.EndDate, eventInputModel.PageProfileLink, eventInputModel.About);
+            @event.Update(eventInputModel.Name, Convert.ToDateTime(eventInputModel.StartDate) , Convert.ToDateTime(eventInputModel.EndDate), eventInputModel.PageProfileLink, eventInputModel.About);
             @event.EventPhotos = eventPhotos;
 
             var eventId = await _eventRepository.Update(@event);

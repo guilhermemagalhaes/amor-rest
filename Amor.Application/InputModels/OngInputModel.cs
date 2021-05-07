@@ -15,8 +15,8 @@ namespace Amor.Application.InputModels
         public string PageProfileLink { get; set; }
         public string Document  { get; set; }
         public string About { get; set; }
-        public DateTime OpeningTime { get; set; }
-        public DateTime ClosingTime { get; set; }
+        public string OpeningTime { get; set; }
+        public string ClosingTime { get; set; }
         public IList<string> Photos { get; set; }
         public AddressInputModel Address { get; set; }
     }
