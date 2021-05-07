@@ -76,7 +76,7 @@ namespace Amor.API.Controllers
                expires: expiration,
                signingCredentials: creds);
 
-            return new SignInViewModel(new JwtSecurityTokenHandler().WriteToken(token), expiration, signInViewModel.Person);
+            return new SignInViewModel(new JwtSecurityTokenHandler().WriteToken(token), expiration, signInViewModel.Person, signInViewModel.Address);
         }
     }
 }

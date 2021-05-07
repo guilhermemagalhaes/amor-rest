@@ -36,11 +36,21 @@ namespace Amor.Application.Services
         public async Task<SignInViewModel> SignIn(SignInInputModel signInInputModel)
         {
             SignInViewModel ret = null;
+
             var user = await _userRepository.SignIn(signInInputModel.Email, signInInputModel.Password);
 
             if (user != null)
-            {                
-                ret = new SignInViewModel(null, DateTime.Now, _mapper.Map<Person, PersonViewModel>(user.Person));
+            {
+                AddressViewModel address = null;
+
+                var person = _mapper.Map<Person, PersonViewModel>(user.Person);
+
+                if (user.Person.Address.Count() > 0)
+                {
+                    address = _mapper.Map<Address, AddressViewModel>(user.Person.Address.FirstOrDefault());                    
+                }
+
+                ret = new SignInViewModel(null, DateTime.Now, person, address);
             }
             return ret;
         }

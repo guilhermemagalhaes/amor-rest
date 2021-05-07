@@ -14,6 +14,9 @@ namespace Amor.API.Infrastructure.AutoMapper
         {
             CreateMap<Person, PersonViewModel>().ReverseMap();
 
+            CreateMap<Person, PersonViewModelForSignIn>()                
+                .ReverseMap();
+
             CreateMap<Address, AddressViewModel>().ReverseMap();
 
             CreateMap<PersonPhoto, PersonPhotosViewModel>().ReverseMap();
@@ -21,8 +24,8 @@ namespace Amor.API.Infrastructure.AutoMapper
             CreateMap<Photo, PhotoViewModel>().ReverseMap();
 
             CreateMap<Homeless, HomelessViewModel>()
-                .ForMember(h => h.Name, p => p.MapFrom(x => x.Person.Name))                
-                .ForMember(h => h.Address, p => p.Ignore())                
+                .ForMember(h => h.Name, p => p.MapFrom(x => x.Person.Name))
+                .ForMember(h => h.Address, p => p.Ignore())
                 .ReverseMap();
 
             CreateMap<Ong, OngViewModel>()
