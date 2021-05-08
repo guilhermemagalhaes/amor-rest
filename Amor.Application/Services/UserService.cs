@@ -4,6 +4,7 @@ using Amor.Core.Entities;
 using Amor.Core.Enums;
 using Amor.Core.Interfaces;
 using AutoMapper;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,16 @@ namespace Amor.Application.Services
             _personRepository = personRepository;
             _ongRepository = ongRepository;
             _mapper = mapper;
+        }
+
+        public async Task<string> DocumentExists(string document)
+        {
+            return await _personRepository.DocumentExists(document);
+        }
+
+        public async Task<bool> EmailExists(string email)
+        {
+            return await _userRepository.EmailExists(email);
         }
 
         public async Task<UserSimpleViewModel> GetUserByPersonId(int personId)

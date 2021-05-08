@@ -39,5 +39,6 @@ namespace Amor.Core.Entities
         public string About { get; private set; }
         public int PersonId { get; private set; }
         public Person Person { get; private set; }
+        public ICollection<Supporter> Supporters { get; private set; }
     }
 }

@@ -49,6 +49,7 @@ namespace Amor.Infrastructure.Persistence.Repository
                .Include(x => x.Person).ThenInclude(x => x.Address)
                .Include(x => x.Person).ThenInclude(x => x.LegalPerson)
                .Include(x => x.Person).ThenInclude(x => x.PersonPhotos).ThenInclude(x => x.Photo)
+               .Include(x => x.Supporters).ThenInclude(x => x.Donation).ThenInclude(x => x.Person)
                .Where(x => x.PersonId == personId)
                .FirstOrDefaultAsync();
         }

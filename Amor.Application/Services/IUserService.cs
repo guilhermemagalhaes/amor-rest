@@ -12,5 +12,7 @@ namespace Amor.Application.Services
         Task<SignUpViewModel> SignUp(SignUpInputModel signUpInputModel);
         Task<SignInViewModel> SignIn(SignInInputModel signInInputModel);
         Task<UserSimpleViewModel> GetUserByPersonId(int personId);
+        Task<bool> EmailExists(string email);
+        Task<string> DocumentExists(string document);
     }
 }

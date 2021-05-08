@@ -77,6 +77,13 @@ namespace Amor.Application.Services
                 ret.Address = address;
             }
 
+            ret.Supporters = new List<string>();
+            foreach(var item in response.Supporters)
+            {                
+                if(!item.Donation.AnonymousDonation)
+                    ret.Supporters.Add(item.Donation.Person.Name);
+            }
+
             ret.OpeningTime = response.OpeningTime?.ToString("hh:mm");
             ret.ClosingTime = response.ClosingTime?.ToString("hh:mm");
 

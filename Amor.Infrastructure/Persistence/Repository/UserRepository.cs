@@ -53,5 +53,10 @@ namespace Amor.Infrastructure.Persistence.Repository
                 .Include(x => x.Person).ThenInclude(x => x.PhysicalPerson).AsNoTracking()
                 .FirstOrDefaultAsync();
         }
+
+        public async Task<bool> EmailExists(string email)
+        {
+            return await _dbContext.Users.AnyAsync(x => x.Email == email);
+        }
     }
 }

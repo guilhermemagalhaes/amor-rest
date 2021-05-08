@@ -84,11 +84,14 @@ namespace Amor.API
             services.AddScoped<IOngRepository, OngRepository>();
             services.AddScoped<IEventRepository, EventRepository>();
             services.AddScoped<IEventParticipantsRepository, EventParticipantsRepository>();
+            services.AddScoped<IDonationRepository, DonationRepository>();
+            services.AddScoped<ISupporterRepository, SupporterRepository>();
 
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IHomelessService, HomelessService>();
             services.AddScoped<IOngService, OngService>();
             services.AddScoped<IEventService, EventService>();
+            services.AddScoped<IPaymentService, PaymentService>();
         }
 
         public void ConfigureDbContext(IServiceCollection services)

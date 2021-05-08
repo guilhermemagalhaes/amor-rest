@@ -1,4 +1,5 @@
 ﻿using Amor.Core.Entities;
+using Amor.Core.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,5 +14,6 @@ namespace Amor.Core.Interfaces
         Task<int> AddLegalPerson(LegalPerson legalPerson);
         Task<int> AddPhysicalPerson(PhysicalPerson physicalPerson);
         Task<Person> GetPerson(int id);
+        Task<string> DocumentExists(string document);
     }
 }

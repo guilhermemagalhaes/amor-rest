@@ -13,5 +13,6 @@ namespace Amor.Application.Services
         Task<bool> Add(EventInputModel eventInputModel);
         Task<bool> Update(EventInputModel eventInputModel);
         Task<IList<SearchByNameViewModel>> GetByName(string name);
+        Task<bool> AddEventParticipants(EventParticipantsInputModel eventParticipantsInputModel);
     }
 }

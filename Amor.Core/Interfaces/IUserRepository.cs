@@ -12,5 +12,6 @@ namespace Amor.Core.Interfaces
         Task<User> SignIn(string email, string password);
         Task<User> GetUser(int id);
         Task<User> GetUserByPersonId(int personId);
+        Task<bool> EmailExists(string email);        
     }
 }

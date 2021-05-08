@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Amor.Application.InputModels;
 using Amor.Application.Services;
 using Amor.Application.ViewModels;
+using Amor.Core.Enums;
 using FluentValidation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -38,6 +39,14 @@ namespace Amor.API.Controllers
         [ProducesResponseType(typeof(SignUpViewModel), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> SignUp([FromBody]SignUpInputModel signUpInputModel)
         {
+            if (await _userService.EmailExists(signUpInputModel.Email))
+                return BadRequest("E-mail already registered!");
+
+            var documentExist = await _userService.DocumentExists(signUpInputModel.Document);
+
+            if (!string.IsNullOrEmpty(documentExist))
+                return BadRequest(documentExist);
+
             var retorno = await _userService.SignUp(signUpInputModel);
             return Ok(retorno);
         }
