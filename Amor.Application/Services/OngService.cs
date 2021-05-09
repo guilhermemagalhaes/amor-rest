@@ -110,11 +110,12 @@ namespace Amor.Application.Services
             {
                 address.Update(ongInputModel.Address.Longitude,
                                                ongInputModel.Address.Longitude,
-                                               ongInputModel.Address.AddressDesc,
+                                               ongInputModel.Address.Street,
                                                ongInputModel.Address.Neighborhood,
                                                ongInputModel.Address.Province,
                                                ongInputModel.Address.Zip,
                                                ongInputModel.Address.City,
+                                               ongInputModel.Address.Country,
                                                personId: ong.Person.Id,
                                                eventId: null);
 
@@ -124,11 +125,12 @@ namespace Amor.Application.Services
             {
                 await _addressRepository.Add(new Address(ongInputModel.Address.Longitude,
                                                ongInputModel.Address.Longitude,
-                                               ongInputModel.Address.AddressDesc,
+                                               ongInputModel.Address.Street,
                                                ongInputModel.Address.Neighborhood,
                                                ongInputModel.Address.Province,
                                                ongInputModel.Address.Zip,
                                                ongInputModel.Address.City,
+                                               ongInputModel.Address.Country,
                                                personId: ong.Person.Id,
                                                eventId: null));
             }

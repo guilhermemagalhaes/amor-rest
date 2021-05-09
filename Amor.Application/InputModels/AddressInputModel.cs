@@ -9,12 +9,12 @@ namespace Amor.Application.InputModels
     {
         public decimal Longitude { get; set; }
         public decimal Latitude { get; set; }
-        public string Neighborhood { get; set; }
         public string Zip { get; set; }
+        public string Neighborhood { get; set; }        
         public string City { get; set; }
         public string Province { get; set; }
-
-        [JsonPropertyName("Address")]
-        public string AddressDesc { get; set; }
+        public string Number { get; set; }        
+        public string Street { get; set; }
+        public string Country { get; set; }
     }
 }

@@ -8,25 +8,27 @@ namespace Amor.Application.ViewModels
     public class AddressViewModel
     {
         protected AddressViewModel() { }
-        public AddressViewModel(decimal Longitude, decimal Latitude, string Neighborhood, string Zip, string City, string Province, string AddressDesc)
+        public AddressViewModel(decimal longitude, decimal latitude, string zip, string neighborhood, string city, string province, string number, string street, string country)
         {
-            this.Longitude = Longitude;
-            this.Latitude = Longitude;
-            this.Neighborhood = Neighborhood;
-            this.Zip = Zip;
-            this.City = City;
-            this.Province = Province;
-            this.AddressDesc = AddressDesc;
+            Longitude = longitude;
+            Latitude = latitude;
+            Zip = zip;
+            Neighborhood = neighborhood;
+            City = city;
+            Province = province;
+            Number = number;
+            Street = street;
+            Country = country;
         }
 
-        public decimal Longitude { get; private set; }
-        public decimal Latitude { get; private set; }
-        public string Neighborhood { get; private set; }
-        public string Zip { get; private set; }
-        public string City { get; private set; }
-        public string Province { get; private set; }
-
-        [JsonPropertyName("Address")]
-        public string AddressDesc { get; private set; }
+        public decimal Longitude { get; set; }
+        public decimal Latitude { get; set; }
+        public string Zip { get; set; }
+        public string Neighborhood { get; set; }
+        public string City { get; set; }
+        public string Province { get; set; }
+        public string Number { get; set; }
+        public string Street { get; set; }
+        public string Country { get; set; }
     }
 }

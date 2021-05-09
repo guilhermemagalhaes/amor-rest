@@ -45,12 +45,13 @@ namespace Amor.Application.Services
             var homeless = await _homelessRepository.Get(homelessId);            
             await _addressRepository.Add(new Address(homelessInputModel.Address.Longitude,
                                                homelessInputModel.Address.Longitude,
-                                               homelessInputModel.Address.AddressDesc,
+                                               homelessInputModel.Address.Street,
                                                homelessInputModel.Address.Neighborhood,
                                                homelessInputModel.Address.Province,
                                                homelessInputModel.Address.Zip,
                                                homelessInputModel.Address.City,
-                                               personId: homeless.Person.Id,
+                                               homelessInputModel.Address.Country,
+                                               personId: homeless.PersonId,
                                                eventId: null));
 
             return homelessId > 0;
@@ -97,11 +98,12 @@ namespace Amor.Application.Services
 
             await _addressRepository.Update(new Address(homelessInputModel.Address.Longitude,
                                                homelessInputModel.Address.Longitude,
-                                               homelessInputModel.Address.AddressDesc,
+                                               homelessInputModel.Address.Street,
                                                homelessInputModel.Address.Neighborhood,
                                                homelessInputModel.Address.Province,
                                                homelessInputModel.Address.Zip,
                                                homelessInputModel.Address.City,
+                                               homelessInputModel.Address.Country,                                                                                              
                                                personId: homeless.Person.Id,
                                                eventId: null));
 

@@ -8,35 +8,37 @@ namespace Amor.Core.Entities
     {
         protected Address() { }
         
-        public Address(decimal longitude, decimal latitude, string addressDesc, string neighborhood, string province, string zip, string city, int? personId, int? eventId)
+        public Address(decimal longitude, decimal latitude, string street, string neighborhood, string province, string zip, string city, string country, int? personId, int? eventId)
         {
             Longitude = longitude;
             Latitude = latitude;
-            AddressDesc = addressDesc;
+            Street = street;
             Neighborhood = neighborhood;
             Province = province;
             Zip = zip;
             City = city;
+            Country = country;
             PersonId = personId;
             EventId = eventId;
         }
 
-        public void Update(decimal longitude, decimal latitude, string addressDesc, string neighborhood, string province, string zip, string city, int? personId, int? eventId)
+        public void Update(decimal longitude, decimal latitude, string street, string neighborhood, string province, string zip, string city, string country, int? personId, int? eventId)
         {
             Longitude = longitude;
             Latitude = latitude;
-            AddressDesc = addressDesc;
+            Street = street;
             Neighborhood = neighborhood;
             Province = province;
             Zip = zip;
             City = city;
             PersonId = personId;
             EventId = eventId;
+            Country = country;
         }
 
         public decimal Longitude { get; private set; }
         public decimal Latitude { get; private set; }
-        public string AddressDesc { get; private set; }
+        public string Street { get; private set; }
         public string Neighborhood { get; private set; }
         public string Province { get; private set; }
         public string Zip { get; private set; }
@@ -45,5 +47,7 @@ namespace Amor.Core.Entities
         public Person Person { get; private set; }
         public int? EventId { get; private set; }
         public Event Event { get; private set; }
+        public string Number { get; private set; }
+        public string Country { get; private set; }
     }
 }

@@ -55,11 +55,12 @@ namespace Amor.Application.Services
 
             await _addressRepository.Add(new Address(eventInputModel.Address.Longitude,
                                               eventInputModel.Address.Longitude,
-                                              eventInputModel.Address.AddressDesc,
+                                              eventInputModel.Address.Street,
                                               eventInputModel.Address.Neighborhood,
                                               eventInputModel.Address.Province,
                                               eventInputModel.Address.Zip,
                                               eventInputModel.Address.City,
+                                              eventInputModel.Address.Country,
                                               personId: null,
                                               eventId: eventId));
 
@@ -132,12 +133,13 @@ namespace Amor.Application.Services
             if (address != null)
             {
                 address.Update(eventInputModel.Address.Longitude,
-                                               eventInputModel.Address.Longitude,
-                                               eventInputModel.Address.AddressDesc,
-                                               eventInputModel.Address.Neighborhood,
-                                               eventInputModel.Address.Province,
-                                               eventInputModel.Address.Zip,
-                                               eventInputModel.Address.City,                                               
+                                              eventInputModel.Address.Longitude,
+                                              eventInputModel.Address.Street,
+                                              eventInputModel.Address.Neighborhood,
+                                              eventInputModel.Address.Province,
+                                              eventInputModel.Address.Zip,
+                                              eventInputModel.Address.City,
+                                              eventInputModel.Address.Country,
                                                eventId: eventId,
                                                personId: null);
 
@@ -146,12 +148,13 @@ namespace Amor.Application.Services
             else
             {
                 await _addressRepository.Add(new Address(eventInputModel.Address.Longitude,
-                                               eventInputModel.Address.Longitude,
-                                               eventInputModel.Address.AddressDesc,
-                                               eventInputModel.Address.Neighborhood,
-                                               eventInputModel.Address.Province,
-                                               eventInputModel.Address.Zip,
-                                               eventInputModel.Address.City,
+                                              eventInputModel.Address.Longitude,
+                                              eventInputModel.Address.Street,
+                                              eventInputModel.Address.Neighborhood,
+                                              eventInputModel.Address.Province,
+                                              eventInputModel.Address.Zip,
+                                              eventInputModel.Address.City,
+                                              eventInputModel.Address.Country,
                                                personId: null,
                                                eventId: eventId));
             }
