@@ -73,6 +73,11 @@ namespace Amor.Application.Services
             return await _eventParticipantsRepository.Add(new EventParticipants(eventParticipantsInputModel.PersonId, eventParticipantsInputModel.EventId, false)) > 0;
         }
 
+        public async Task<bool> Delete(int id)
+        {
+            return await _eventRepository.Delete(id);
+        }
+
         public async Task<EventViewModel> Get(int id)
         {
             var response = await _eventRepository.Get(id);

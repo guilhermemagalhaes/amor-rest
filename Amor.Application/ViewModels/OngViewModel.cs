@@ -6,7 +6,8 @@ using System.Threading;
 namespace Amor.Application.ViewModels
 {
     public class OngViewModel
-    {     
+    {
+        public int Id { get; set; }
         public string Phone { get; set; }
         public string Name { get; set; }
         public string Document { get; set; }

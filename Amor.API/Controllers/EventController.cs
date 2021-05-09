@@ -62,5 +62,24 @@ namespace Amor.API.Controllers
 
             return Ok(new { Ok = ret });
         }
+
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(int id)
+        {
+            bool ret;
+
+            var personId = GetPersonId();
+
+            if (!personId.HasValue)
+                return NotFound();
+
+            if (id < 0)
+                return BadRequest();
+                        
+            ret = await _eventService.Delete(id);
+
+            return Ok(new { Ok = ret });
+        }
     }
 }

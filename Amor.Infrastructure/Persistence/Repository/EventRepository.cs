@@ -26,6 +26,35 @@ namespace Amor.Infrastructure.Persistence.Repository
 
         }
 
+        public async Task<bool> Delete(int id)
+        {
+            try
+            {
+                var eventParticipants = _dbContext.EventParticipants.Where(x => x.EventId == id).ToList();
+
+                if (eventParticipants != null)
+                    _dbContext.RemoveRange(eventParticipants);
+
+                var eventPhotos = _dbContext.EventPhotos.Where(x => x.EventId == id).ToList();
+
+                if (eventPhotos != null)
+                    _dbContext.RemoveRange(eventPhotos);
+
+                var eventAddress = _dbContext.Address.Where(x => x.EventId == id).ToList();
+
+                if (eventAddress != null)
+                    _dbContext.RemoveRange(eventAddress);
+
+                _dbContext.Remove(await _dbContext.Events.FindAsync(id));
+                _dbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
         public async Task<Event> Get(int id)
         {
             return await _dbContext.Events

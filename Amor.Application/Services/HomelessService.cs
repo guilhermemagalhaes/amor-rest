@@ -97,7 +97,11 @@ namespace Amor.Application.Services
 
             var homelessId = await _homelessRepository.Update(homeless);
 
-            await _addressRepository.Update(new Address(homelessInputModel.Address.Longitude,
+            var address = await _addressRepository.GetByPersonId(homeless.PersonId);
+
+            if(address != null)
+            {
+                address.Update(homelessInputModel.Address.Longitude,
                                                homelessInputModel.Address.Longitude,
                                                homelessInputModel.Address.Street,
                                                homelessInputModel.Address.Neighborhood,
@@ -107,8 +111,11 @@ namespace Amor.Application.Services
                                                homelessInputModel.Address.Country,
                                                homelessInputModel.Address.Number,
                                                personId: homeless.Person.Id,
-                                               eventId: null));
+                                               eventId: null);
 
+                await _addressRepository.Update(address);
+            }
+            
             return homelessId > 0;
         }
     }

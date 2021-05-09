@@ -10,6 +10,7 @@ namespace Amor.Core.Interfaces
     {
         Task<int> Add(Event @event);
         Task<int> Update(Event @event);
+        Task<bool> Delete(int id);
         Task<Event> Get(int id);
         Task<IList<Event>> GetByName(string name);        
     }

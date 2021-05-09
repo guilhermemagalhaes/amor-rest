@@ -6,6 +6,7 @@ namespace Amor.Application.ViewModels
 {
     public class EventViewModel
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public string PageProfileLink { get; set; }
         public string About { get; set; }
