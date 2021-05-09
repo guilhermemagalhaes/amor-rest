@@ -51,6 +51,7 @@ namespace Amor.Application.Services
                                                homelessInputModel.Address.Zip,
                                                homelessInputModel.Address.City,
                                                homelessInputModel.Address.Country,
+                                               homelessInputModel.Address.Number,
                                                personId: homeless.PersonId,
                                                eventId: null));
 
@@ -103,7 +104,8 @@ namespace Amor.Application.Services
                                                homelessInputModel.Address.Province,
                                                homelessInputModel.Address.Zip,
                                                homelessInputModel.Address.City,
-                                               homelessInputModel.Address.Country,                                                                                              
+                                               homelessInputModel.Address.Country,
+                                               homelessInputModel.Address.Number,
                                                personId: homeless.Person.Id,
                                                eventId: null));
 

@@ -116,6 +116,7 @@ namespace Amor.Application.Services
                                                ongInputModel.Address.Zip,
                                                ongInputModel.Address.City,
                                                ongInputModel.Address.Country,
+                                               ongInputModel.Address.Number,
                                                personId: ong.Person.Id,
                                                eventId: null);
 
@@ -131,6 +132,7 @@ namespace Amor.Application.Services
                                                ongInputModel.Address.Zip,
                                                ongInputModel.Address.City,
                                                ongInputModel.Address.Country,
+                                               ongInputModel.Address.Number,
                                                personId: ong.Person.Id,
                                                eventId: null));
             }

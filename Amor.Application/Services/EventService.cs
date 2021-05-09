@@ -61,6 +61,7 @@ namespace Amor.Application.Services
                                               eventInputModel.Address.Zip,
                                               eventInputModel.Address.City,
                                               eventInputModel.Address.Country,
+                                              eventInputModel.Address.Number,
                                               personId: null,
                                               eventId: eventId));
 
@@ -140,6 +141,7 @@ namespace Amor.Application.Services
                                               eventInputModel.Address.Zip,
                                               eventInputModel.Address.City,
                                               eventInputModel.Address.Country,
+                                              eventInputModel.Address.Number,
                                                eventId: eventId,
                                                personId: null);
 
@@ -155,6 +157,7 @@ namespace Amor.Application.Services
                                               eventInputModel.Address.Zip,
                                               eventInputModel.Address.City,
                                               eventInputModel.Address.Country,
+                                              eventInputModel.Address.Number,
                                                personId: null,
                                                eventId: eventId));
             }

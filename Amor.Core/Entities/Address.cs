@@ -8,7 +8,7 @@ namespace Amor.Core.Entities
     {
         protected Address() { }
         
-        public Address(decimal longitude, decimal latitude, string street, string neighborhood, string province, string zip, string city, string country, int? personId, int? eventId)
+        public Address(decimal longitude, decimal latitude, string street, string neighborhood, string province, string zip, string city, string country, string number, int? personId, int? eventId)
         {
             Longitude = longitude;
             Latitude = latitude;
@@ -18,11 +18,12 @@ namespace Amor.Core.Entities
             Zip = zip;
             City = city;
             Country = country;
+            Number = number;
             PersonId = personId;
             EventId = eventId;
         }
 
-        public void Update(decimal longitude, decimal latitude, string street, string neighborhood, string province, string zip, string city, string country, int? personId, int? eventId)
+        public void Update(decimal longitude, decimal latitude, string street, string neighborhood, string province, string zip, string city, string country, string number, int? personId, int? eventId)
         {
             Longitude = longitude;
             Latitude = latitude;
@@ -34,6 +35,7 @@ namespace Amor.Core.Entities
             PersonId = personId;
             EventId = eventId;
             Country = country;
+            Number = number;
         }
 
         public decimal Longitude { get; private set; }
