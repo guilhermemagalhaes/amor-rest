@@ -21,10 +21,16 @@ namespace Amor.Infrastructure.Persistence.Repository
 
         public async Task<int> Add(Homeless homeless)
         {
-            var request = await _dbContext.Homeless.AddAsync(homeless);
-            await _dbContext.SaveChangesAsync();
-            return request.Entity.Id;
-
+            try
+            {
+                var request = await _dbContext.Homeless.AddAsync(homeless);
+                await _dbContext.SaveChangesAsync();
+                return request.Entity.Id;
+            }
+            catch(Exception e)
+            {
+                throw;
+            }            
         }
 
         public async Task<Homeless> Get(int id)

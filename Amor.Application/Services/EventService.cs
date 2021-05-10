@@ -57,7 +57,7 @@ namespace Amor.Application.Services
             var eventId = await _eventRepository.Add(new Event(eventInputModel.Name, eventInputModel.StartDate, eventInputModel.EndDate, eventInputModel.PageProfileLink, eventInputModel.About, eventPhotos, eventParticipants));
 
             await _addressRepository.Add(new Address(eventInputModel.Address.Longitude,
-                                              eventInputModel.Address.Longitude,
+                                              eventInputModel.Address.Latitude,
                                               eventInputModel.Address.Street,
                                               eventInputModel.Address.Neighborhood,
                                               eventInputModel.Address.Province,
@@ -101,9 +101,6 @@ namespace Amor.Application.Services
                 var address = _mapper.Map<Address, AddressViewModel>(response.Address.FirstOrDefault());
                 ret.EventAddress = address;
             }
-
-            ret.StartDate = response.StartDate.ToString("dd/MM/yyyy");
-            ret.EndDate = response.EndDate.ToString("dd/MM/yyyy");
 
             return ret;
         }

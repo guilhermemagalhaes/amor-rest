@@ -12,11 +12,11 @@ namespace Amor.Application.ViewModels
         public string Name { get; set; }
         public string About { get; set; }
         public string Needs { get; set; }
-        public Address Address { get; set; }
+        public AddressViewModel Address { get; set; }
         public string OpeningTime { get; set; }
         public string ClosingTime { get; set; }
         public string ImageUrl { get; set; }
-        public List<string> photos { get; set; }
-        public List<string> supporters { get; set; }
+        public List<string> Photos { get; set; }
+        public List<string> Supporters { get; set; }
     }
 }
