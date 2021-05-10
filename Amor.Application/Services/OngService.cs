@@ -93,12 +93,15 @@ namespace Amor.Application.Services
         public async Task<bool> Update(OngInputModel ongInputModel)
         {
             List<PersonPhoto> personPhotos = new List<PersonPhoto>();
-            foreach (var i in ongInputModel.Photos)
-                personPhotos.Add(new PersonPhoto(new Photo(i)));
+            if (ongInputModel.Photos != null)
+            {
+                foreach (var i in ongInputModel?.Photos)
+                    personPhotos.Add(new PersonPhoto(new Photo(i)));
+            }
 
             var ong = await _ongRepository.GetByPersonId(ongInputModel.personId);
 
-            ong.Update(Convert.ToDateTime(ongInputModel.OpeningTime), Convert.ToDateTime(ongInputModel.ClosingTime), ongInputModel.PageProfileLink, ongInputModel.About);
+            ong.Update(Convert.ToDateTime(ongInputModel.OpeningTime), Convert.ToDateTime(ongInputModel.ClosingTime), ongInputModel.PageProfileLink ?? "", ongInputModel.About);
             ong.Person.Update(ongInputModel.Name, ongInputModel.Phone);
             ong.Person.PersonPhotos = personPhotos;
 
@@ -109,7 +112,7 @@ namespace Amor.Application.Services
             if (address != null)
             {
                 address.Update(ongInputModel.Address.Longitude,
-                                               ongInputModel.Address.Longitude,
+                                               ongInputModel.Address.Latitude,
                                                ongInputModel.Address.Street,
                                                ongInputModel.Address.Neighborhood,
                                                ongInputModel.Address.Province,
@@ -125,7 +128,7 @@ namespace Amor.Application.Services
             else
             {
                 await _addressRepository.Add(new Address(ongInputModel.Address.Longitude,
-                                               ongInputModel.Address.Longitude,
+                                               ongInputModel.Address.Latitude,
                                                ongInputModel.Address.Street,
                                                ongInputModel.Address.Neighborhood,
                                                ongInputModel.Address.Province,

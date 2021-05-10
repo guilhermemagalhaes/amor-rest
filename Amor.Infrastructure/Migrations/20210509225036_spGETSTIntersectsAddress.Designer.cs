@@ -4,14 +4,16 @@ using Amor.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Amor.Infrastructure.Migrations
 {
     [DbContext(typeof(AmorAppDbContext))]
-    partial class AmorAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210509225036_spGETSTIntersectsAddress")]
+    partial class spGETSTIntersectsAddress
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -316,20 +318,6 @@ namespace Amor.Infrastructure.Migrations
                         .IsUnique();
 
                     b.ToTable("PhysicalPerson");
-                });
-
-            modelBuilder.Entity("Amor.Core.Entities.SearchOnMyLocation", b =>
-                {
-                    b.Property<int?>("EventId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("HomelessId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("OngId")
-                        .HasColumnType("int");
-
-                    b.ToTable("SearchOnMyLocation");
                 });
 
             modelBuilder.Entity("Amor.Core.Entities.Supporter", b =>

@@ -38,13 +38,17 @@ namespace Amor.Application.Services
         public async Task<bool> Add(HomelessInputModel homelessInputModel)
         {
             List<PersonPhoto> personPhotos = new List<PersonPhoto>();
-            foreach (var i in homelessInputModel.Photos)
-                personPhotos.Add(new PersonPhoto(new Photo(i)));
-            
+
+            if (homelessInputModel.Photos != null)
+            {
+                foreach (var i in homelessInputModel.Photos)
+                    personPhotos.Add(new PersonPhoto(new Photo(i)));
+            }
+                            
             var homelessId = await _homelessRepository.Add(new Homeless(homelessInputModel.Needs, homelessInputModel.About, 0, new Person(homelessInputModel.Name, "", personPhotos), homelessInputModel.personIdCadastro));
             var homeless = await _homelessRepository.Get(homelessId);            
             await _addressRepository.Add(new Address(homelessInputModel.Address.Longitude,
-                                               homelessInputModel.Address.Longitude,
+                                               homelessInputModel.Address.Latitude,
                                                homelessInputModel.Address.Street,
                                                homelessInputModel.Address.Neighborhood,
                                                homelessInputModel.Address.Province,
@@ -86,8 +90,12 @@ namespace Amor.Application.Services
         public async Task<bool> Update(HomelessInputModel homelessInputModel)
         {
             List<PersonPhoto> personPhotos = new List<PersonPhoto>();
-            foreach (var i in homelessInputModel.Photos)
-                personPhotos.Add(new PersonPhoto(new Photo(i)));
+
+            if(homelessInputModel.Photos != null)
+            {
+                foreach (var i in homelessInputModel.Photos)
+                    personPhotos.Add(new PersonPhoto(new Photo(i)));
+            }
 
             var homeless = await _homelessRepository.Get(homelessInputModel.Id);
 
@@ -102,7 +110,7 @@ namespace Amor.Application.Services
             if(address != null)
             {
                 address.Update(homelessInputModel.Address.Longitude,
-                                               homelessInputModel.Address.Longitude,
+                                               homelessInputModel.Address.Latitude,
                                                homelessInputModel.Address.Street,
                                                homelessInputModel.Address.Neighborhood,
                                                homelessInputModel.Address.Province,

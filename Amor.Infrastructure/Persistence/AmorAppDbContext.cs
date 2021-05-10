@@ -25,11 +25,14 @@ namespace Amor.Infrastructure.Persistence
         public virtual DbSet<Photo> Photos { get; set; }
         public virtual DbSet<PersonPhoto> PersonPhotos { get; set; }
         public virtual DbSet<EventPhoto> EventPhotos { get; set; }
-        
+
+        public virtual DbSet<SearchOnMyLocation> SearchOnMyLocation { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Address>().Property(x => x.Latitude).HasPrecision(12, 9);
             modelBuilder.Entity<Address>().Property(x => x.Longitude).HasPrecision(12, 9);
+            modelBuilder.Entity<SearchOnMyLocation>().HasNoKey();
             base.OnModelCreating(modelBuilder);
         }
     }

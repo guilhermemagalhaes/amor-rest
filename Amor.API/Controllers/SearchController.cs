@@ -25,13 +25,15 @@ namespace Amor.API.Controllers
     {
         private readonly IOngService _ongService;
         private readonly IEventService _eventService;
-        public SearchController(IOngService ongService, IEventService eventService)
+        private readonly ICoreService _coreService;
+        public SearchController(IOngService ongService, IEventService eventService, ICoreService coreService)
         {
             _ongService = ongService;
             _eventService = eventService;
+            _coreService = coreService;
         }
 
-        [HttpGet]
+        [HttpGet]                
         [ProducesResponseType(typeof(List<SearchByNameViewModel>), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> Get(string name)
         {
@@ -50,6 +52,19 @@ namespace Amor.API.Controllers
                 ret.AddRange(events);
 
             return Ok(ret);
-        }        
+        }
+
+        [HttpPost]        
+        [ActionName("SearchOnMyLocations")]
+        [ProducesResponseType(typeof(List<SearchOnMyLocationViewModel>), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> SearchOnMyLocations(List<SearchOnMyLocationInputModel> models)
+        {
+            if (models.Count() < 4)
+                return BadRequest();
+
+            var ret = await _coreService.GetSearchOnMyLocations(models);
+            return Ok(ret);
+        }
+
     }
 }

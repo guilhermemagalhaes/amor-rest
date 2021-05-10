@@ -45,9 +45,12 @@ namespace Amor.Application.Services
         public async Task<bool> Add(EventInputModel eventInputModel)
         {
             List<EventPhoto> eventPhotos = new List<EventPhoto>();
-            foreach (var i in eventInputModel.Photos)
-                eventPhotos.Add(new EventPhoto(new Photo(i)));
-
+            if(eventInputModel.Photos != null)
+            {
+                foreach (var i in eventInputModel.Photos)
+                    eventPhotos.Add(new EventPhoto(new Photo(i)));
+            }
+            
             List<EventParticipants> eventParticipants = new List<EventParticipants>();
             eventParticipants.Add(new EventParticipants(eventInputModel.personIdCadastro, true));
 
@@ -124,9 +127,12 @@ namespace Amor.Application.Services
         public async Task<bool> Update(EventInputModel eventInputModel)
         {
             List<EventPhoto> eventPhotos = new List<EventPhoto>();
-            foreach (var i in eventInputModel.Photos)
-                eventPhotos.Add(new EventPhoto(new Photo(i)));
-
+            if(eventInputModel.Photos != null)
+            {
+                foreach (var i in eventInputModel.Photos)
+                    eventPhotos.Add(new EventPhoto(new Photo(i)));
+            }
+            
             var @event = await _eventRepository.Get(eventInputModel.Id);
 
             @event.Update(eventInputModel.Name, eventInputModel.StartDate, eventInputModel.EndDate, eventInputModel.PageProfileLink, eventInputModel.About);
@@ -139,7 +145,7 @@ namespace Amor.Application.Services
             if (address != null)
             {
                 address.Update(eventInputModel.Address.Longitude,
-                                              eventInputModel.Address.Longitude,
+                                              eventInputModel.Address.Latitude,
                                               eventInputModel.Address.Street,
                                               eventInputModel.Address.Neighborhood,
                                               eventInputModel.Address.Province,
@@ -155,7 +161,7 @@ namespace Amor.Application.Services
             else
             {
                 await _addressRepository.Add(new Address(eventInputModel.Address.Longitude,
-                                              eventInputModel.Address.Longitude,
+                                              eventInputModel.Address.Latitude,
                                               eventInputModel.Address.Street,
                                               eventInputModel.Address.Neighborhood,
                                               eventInputModel.Address.Province,
