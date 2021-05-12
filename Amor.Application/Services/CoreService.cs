@@ -42,9 +42,9 @@ namespace Amor.Application.Services
             polygon = "POLYGON((";
             foreach (var i in models)
             {
-                polygon += i.lat.ToString().Replace(",", ".") + " " + i.@long.ToString().Replace(",", ".") + ",";
+                polygon += i.@long.ToString().Replace(",", ".") + " " + i.lat.ToString().Replace(",", ".") + ",";
             }
-            polygon += models[0].lat.ToString().Replace(",", ".") + " " + models[0].@long.ToString().Replace(",", ".");
+            polygon += models[0].@long.ToString().Replace(",", ".") + " " + models[0].lat.ToString().Replace(",", ".");
             polygon += "))";
 
             var listaIntersect = await _coreRepository.GetSearchOnMyLocations(polygon);
