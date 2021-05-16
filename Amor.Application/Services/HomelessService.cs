@@ -45,7 +45,7 @@ namespace Amor.Application.Services
                     personPhotos.Add(new PersonPhoto(new Photo(i)));
             }
                             
-            var homelessId = await _homelessRepository.Add(new Homeless(homelessInputModel.Needs, homelessInputModel.About, 0, new Person(homelessInputModel.Name, "", personPhotos), homelessInputModel.personIdCadastro));
+            var homelessId = await _homelessRepository.Add(new Homeless(homelessInputModel.Needs, homelessInputModel.About, homelessInputModel.CounterNotFound, new Person(homelessInputModel.Name, "", personPhotos), homelessInputModel.personIdCadastro));
             var homeless = await _homelessRepository.Get(homelessId);            
             await _addressRepository.Add(new Address(homelessInputModel.Address.Longitude,
                                                homelessInputModel.Address.Latitude,
@@ -99,7 +99,7 @@ namespace Amor.Application.Services
 
             var homeless = await _homelessRepository.Get(homelessInputModel.Id);
 
-            homeless.Update(homelessInputModel.Needs, homelessInputModel.About);
+            homeless.Update(homelessInputModel.Needs, homelessInputModel.About, homelessInputModel.CounterNotFound);
             homeless.Person.Update(homelessInputModel.Name, homelessInputModel.Phone);
             homeless.Person.PersonPhotos = personPhotos;
 

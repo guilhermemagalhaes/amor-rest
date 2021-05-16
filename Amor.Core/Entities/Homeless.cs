@@ -30,11 +30,14 @@ namespace Amor.Core.Entities
             About = about;                        
         }
 
-        public void Update(string needs, string about)
+        public void Update(string needs, string about, int counterNotFound)
         {
             Needs = needs;
             About = about;
+            CounterNotFound = counterNotFound;
         }
+
+
 
         public string Needs { get; private set; }
         public string About { get; private set; }

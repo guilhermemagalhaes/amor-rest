@@ -12,5 +12,7 @@ namespace Amor.Application.ViewModels
         public string Needs { get; set; }
         public AddressViewModel Address { get; set; }
         public IList<string> Photos { get; set; }
+
+        public int CounterNotFound { get; set; }
     }
 }

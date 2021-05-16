@@ -133,8 +133,8 @@ namespace Amor.Application.Services
                             Type = "ONG",
                             Name = ongAtual.Person.Name,
                             About = ongAtual.About,
-                            OpeningTime = ongAtual.OpeningTime?.ToString("hh:mm"),
-                            ClosingTime = ongAtual.ClosingTime?.ToString("hh:mm"),
+                            OpeningTime = ongAtual.OpeningTime,
+                            ClosingTime = ongAtual.ClosingTime,
                             
                         };
 

@@ -18,5 +18,7 @@ namespace Amor.Application.InputModels
 
         [JsonIgnore]
         public int personIdCadastro { get; set; }
+
+        public int CounterNotFound { get; set; }
     }
 }

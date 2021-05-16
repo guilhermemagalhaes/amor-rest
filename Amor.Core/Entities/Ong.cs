@@ -7,7 +7,7 @@ namespace Amor.Core.Entities
     public class Ong : Base
     {
         protected Ong() { }
-        public Ong(DateTime? openingTime, DateTime? closingTime, string pageProfileLink, string about, Person person)
+        public Ong(string openingTime, string closingTime, string pageProfileLink, string about, Person person)
         {
             OpeningTime = openingTime;
             ClosingTime = closingTime;
@@ -16,7 +16,7 @@ namespace Amor.Core.Entities
             Person = person;
         }
 
-        public Ong(DateTime? openingTime, DateTime? closingTime, string pageProfileLink, string about, int personId)
+        public Ong(string openingTime, string closingTime, string pageProfileLink, string about, int personId)
         {
             OpeningTime = openingTime;
             ClosingTime = closingTime;
@@ -25,7 +25,7 @@ namespace Amor.Core.Entities
             PersonId = personId;            
         }
 
-        public void Update(DateTime? openingTime, DateTime? closingTime, string pageProfileLink, string about)
+        public void Update(string openingTime, string closingTime, string pageProfileLink, string about)
         {
             OpeningTime = openingTime;
             ClosingTime = closingTime;
@@ -33,8 +33,8 @@ namespace Amor.Core.Entities
             About = about;            
         }
 
-        public DateTime? OpeningTime { get; private set; }
-        public DateTime? ClosingTime { get; private set; }
+        public string OpeningTime { get; private set; }
+        public string ClosingTime { get; private set; }
         public string PageProfileLink { get; private set; }
         public string About { get; private set; }
         public int PersonId { get; private set; }

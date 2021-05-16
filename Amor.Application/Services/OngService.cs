@@ -84,9 +84,6 @@ namespace Amor.Application.Services
                     ret.Supporters.Add(item.Donation.Person.Name);
             }
 
-            ret.OpeningTime = response.OpeningTime?.ToString("hh:mm");
-            ret.ClosingTime = response.ClosingTime?.ToString("hh:mm");
-
             return ret;
         }
 
@@ -101,7 +98,7 @@ namespace Amor.Application.Services
 
             var ong = await _ongRepository.GetByPersonId(ongInputModel.personId);
 
-            ong.Update(Convert.ToDateTime(ongInputModel.OpeningTime), Convert.ToDateTime(ongInputModel.ClosingTime), ongInputModel.PageProfileLink ?? "", ongInputModel.About);
+            ong.Update(ongInputModel.OpeningTime, ongInputModel.ClosingTime, ongInputModel.PageProfileLink ?? "", ongInputModel.About);
             ong.Person.Update(ongInputModel.Name, ongInputModel.Phone);
             ong.Person.PersonPhotos = personPhotos;
 
