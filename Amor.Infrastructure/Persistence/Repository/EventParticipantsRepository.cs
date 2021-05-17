@@ -25,11 +25,11 @@ namespace Amor.Infrastructure.Persistence.Repository
             return request.Entity.Id;
         }
 
-        public async Task<EventParticipants> GetByEventId(int eventId)
+        public async Task<EventParticipants> GetOrganizerByEventId(int eventId)
         {
             return await _dbContext.EventParticipants
                 .Include(x => x.Event)
-                .Where(x => x.EventId == eventId).FirstOrDefaultAsync();
+                .Where(x => x.EventId == eventId && x.Organizer == true).FirstOrDefaultAsync();
         }
 
         public async Task<int> Update(EventParticipants eventParticipants)

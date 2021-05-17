@@ -10,6 +10,6 @@ namespace Amor.Core.Interfaces
     {
         Task<int> Add(EventParticipants eventParticipants);
         Task<int> Update(EventParticipants eventParticipants);
-        Task<EventParticipants> GetByEventId(int eventId);
+        Task<EventParticipants> GetOrganizerByEventId(int eventId);
     }
 }

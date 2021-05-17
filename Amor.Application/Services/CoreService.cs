@@ -34,7 +34,7 @@ namespace Amor.Application.Services
             _ongRepository = ongRepository;
         }
 
-        public async Task<List<SearchOnMyLocationViewModel>> GetSearchOnMyLocations(List<SearchOnMyLocationInputModel> models)
+        public async Task<List<SearchOnMyLocationViewModel>> GetSearchOnMyLocations(List<SearchOnMyLocationInputModel> models, int personId)
         {
             string polygon = string.Empty;
             List<SearchOnMyLocationViewModel> ret = new List<SearchOnMyLocationViewModel>();
@@ -60,6 +60,7 @@ namespace Amor.Application.Services
                     foreach (var i in events)
                     {
                         var eventAtual = await _eventRepository.Get((int)i.EventId);
+                        var eventParticipant = await _eventParticipantsRepository.GetOrganizerByEventId(eventAtual.Id);
 
                         var temp = new SearchOnMyLocationViewModel()
                         {
@@ -68,7 +69,8 @@ namespace Amor.Application.Services
                             Name = eventAtual.Name,
                             About = eventAtual.About,
                             OpeningTime = eventAtual.StartDate.ToString(),
-                            ClosingTime = eventAtual.EndDate.ToString(),                            
+                            ClosingTime = eventAtual.EndDate.ToString(),
+                            Edited = eventParticipant.PersonId == personId
                         };
 
                         if (eventAtual.Address.Count() > 0)
@@ -155,7 +157,9 @@ namespace Amor.Application.Services
                                 if (!item.Donation.AnonymousDonation)
                                     temp.Supporters.Add(item.Donation.Person.Name);
                             }
-                        }                        
+                        }
+
+                        ret.Add(temp);
                     }
                 }
                 #endregion

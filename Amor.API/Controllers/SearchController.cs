@@ -62,7 +62,12 @@ namespace Amor.API.Controllers
             if (models.Count() < 4)
                 return BadRequest();
 
-            var ret = await _coreService.GetSearchOnMyLocations(models);
+            var personId = GetPersonId();
+
+            if (!personId.HasValue)
+                return NotFound();
+
+            var ret = await _coreService.GetSearchOnMyLocations(models, (int)personId);
             return Ok(ret);
         }
 

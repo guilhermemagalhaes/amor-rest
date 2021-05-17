@@ -17,6 +17,7 @@ namespace Amor.Application.ViewModels
         public string ClosingTime { get; set; }
         public string ImageUrl { get; set; }
         public List<string> Photos { get; set; }
-        public List<string> Supporters { get; set; }        
+        public List<string> Supporters { get; set; }    
+        public bool Edited { get; set; }
     }
 }

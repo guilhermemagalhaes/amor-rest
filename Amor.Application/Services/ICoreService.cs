@@ -9,6 +9,6 @@ namespace Amor.Application.Services
 {
     public interface ICoreService
     {
-        Task<List<SearchOnMyLocationViewModel>> GetSearchOnMyLocations(List<SearchOnMyLocationInputModel> models);
+        Task<List<SearchOnMyLocationViewModel>> GetSearchOnMyLocations(List<SearchOnMyLocationInputModel> models, int personId);
     }
 }
