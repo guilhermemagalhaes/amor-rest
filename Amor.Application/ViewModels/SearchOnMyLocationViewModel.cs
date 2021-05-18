@@ -19,5 +19,6 @@ namespace Amor.Application.ViewModels
         public List<string> Photos { get; set; }
         public List<string> Supporters { get; set; }    
         public bool Edited { get; set; }
+        public int CounterNotFound { get;  set; }
     }
 }

@@ -102,6 +102,12 @@ namespace Amor.Application.Services
                 ret.EventAddress = address;
             }
 
+            ret.Supporters = new List<string>();
+            foreach (var item in response.EventParticipants.Where(x => x.Organizer == false))
+            {
+                ret.Supporters.Add(item.Person.Name);
+            }
+
             return ret;
         }
 

@@ -60,6 +60,7 @@ namespace Amor.Infrastructure.Persistence.Repository
             return await _dbContext.Events
                 .Include(x => x.EventPhotos).ThenInclude(x => x.Photo)
                 .Include(x => x.Address)
+                .Include(x => x.EventParticipants).ThenInclude(x => x.Person)
                 .Where(x => x.Id == id)
                 .FirstOrDefaultAsync();
         }

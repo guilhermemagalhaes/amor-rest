@@ -14,5 +14,6 @@ namespace Amor.Application.ViewModels
         public DateTime EndDate { get; set; }
         public IList<string> Photos { get; set; }
         public AddressViewModel EventAddress { get; set; }
+        public IList<string> Supporters { get; set; }
     }
 }

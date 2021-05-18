@@ -87,6 +87,13 @@ namespace Amor.Application.Services
                                 temp.Photos.Add(item.Photo.URL);
                             }
                         }
+
+                        temp.Supporters = new List<string>();
+                        foreach (var item in eventAtual.EventParticipants.Where(x => x.Organizer == false))
+                        {
+                            temp.Supporters.Add(item.Person.Name);
+                        }
+
                         ret.Add(temp);
                     }
                 }
@@ -108,6 +115,7 @@ namespace Amor.Application.Services
                             Name = homelessAtual.Person.Name,
                             About = homelessAtual.About,
                             Needs = homelessAtual.Needs,
+                            CounterNotFound = homelessAtual.CounterNotFound
                         };
 
                         if(homelessAtual.Person.Address.Count() > 0)
@@ -157,6 +165,12 @@ namespace Amor.Application.Services
                                 if (!item.Donation.AnonymousDonation)
                                     temp.Supporters.Add(item.Donation.Person.Name);
                             }
+                        }
+
+                        if (ongAtual.Person.Address.Count() > 0)
+                        {
+                            var address = _mapper.Map<Address, AddressViewModel>(ongAtual.Person.Address.FirstOrDefault());
+                            temp.Address = address;
                         }
 
                         ret.Add(temp);
